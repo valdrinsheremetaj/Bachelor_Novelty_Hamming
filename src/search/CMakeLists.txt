@@ -441,6 +441,26 @@ create_fast_downward_library(
         successor_generator
     DEPENDENCY_ONLY
 )
+create_fast_downward_library(
+    NAME framework
+    HELP "framework"
+    SOURCES
+        search_algorithms/framework
+    DEPENDS
+        null_pruning_method
+        ordered_set
+        successor_generator
+    DEPENDENCY_ONLY
+)
+create_fast_downward_library(
+    NAME plugin_framework
+    HELP "framework search"
+    SOURCES
+        search_algorithms/plugin_framework
+    DEPENDS
+        framework
+        search_common
+)
 
 create_fast_downward_library(
     NAME plugin_astar
