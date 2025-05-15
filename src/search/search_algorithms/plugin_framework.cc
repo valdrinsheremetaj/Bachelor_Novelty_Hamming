@@ -2,7 +2,6 @@
 #include "search_common.h"
 
 #include "../plugins/plugin.h"
-#include "../width.h"
 
 using namespace std;
 
@@ -28,23 +27,17 @@ public:
             "preferred",
             "use preferred operators of these evaluators",
             "[]");
-        add_option<string>(
-            "width",
-            "width search strategy: one of 'none', 'hamming', or 'novelty'",                "none");
         framework::add_eager_search_options_to_feature(
             *this, "framework");
     }
 
     virtual shared_ptr<framework::Framework>
     create_component(const plugins::Options &opts) const override {
-        search_width::WidthConfig width_config = search_width::get_width_config_from_options(opts);
-
         return plugins::make_shared_from_arg_tuples<framework::Framework>(
             opts.get<shared_ptr<OpenListFactory>>("open"),
             opts.get<bool>("reopen_closed"),
             opts.get<shared_ptr<Evaluator>>("f_eval", nullptr),
             opts.get_list<shared_ptr<Evaluator>>("preferred"),
-            opts.get<string>("width"),
             framework::get_eager_search_arguments_from_options(opts)
         );
     }
