@@ -17,13 +17,14 @@ class Feature;
 }
 
 namespace framework {
-    // enumeration for the type of width used in the search
+    // enumeration for the type of width used in the search --> INT
     enum class Widthtype {
         NONE,
         Hamming,
         Novelty
     };
 class Framework : public SearchAlgorithm {
+    // rausnehmen
     const bool reopen_closed_nodes;
     Widthtype width_type;
     int width_k;
@@ -41,11 +42,13 @@ protected:
     bool expandCheck(const State &candidate, const ClosedList &closed, int k) const;
     void updateClosed(const State &s, ClosedList &closed, int k) const;
     // Hamming Width helper functions
-    int hamming_distance(const State &a, const State &b);
+    int hamming_distance(const State &a, const State &b) const;
     bool hamming_progress_check(const State &candidate, const State &reference);
-    // reference? should be needed?
-    bool hamming_expand_check(const State &candidate, const ClosedList &closed, int k);
+    bool hamming_expand_check(const State &candidate, const ClosedList &closed, int k, const State &reference);
     void hamming_update_closed(const State &s, ClosedList &closed, int k);
+    bool novelty_progress_check(const State &candidate) const;
+
+
 
 public:
     explicit Framework(
@@ -56,21 +59,23 @@ public:
         double max_time,
         const std::string &description,
         utils::Verbosity verbosity,
-        Widthtype width_type = Widthtype::NONE,
+        // interpretation des integers hinzufügen
+        int width_type = 0,
         int width_k = 1);
 
 
     virtual void print_statistics() const override;
 
-    void dump_search_space() const;
+    void dump_ssrch_space() const;
 };
 //need it? (yes)
-extern void add_eager_search_options_to_feature(
+extern void add_framework_options_to_feature(
     plugins::Feature &feature, const std::string &description);
-extern std::tuple<std::shared_ptr<PruningMethod>,
-                  std::shared_ptr<Evaluator>, OperatorCost, int, double,
-                  std::string, utils::Verbosity>
-get_eager_search_arguments_from_options(const plugins::Options &opts);
+extern std::tuple<OperatorCost, int, double,
+                  std::string, 
+                  utils::Verbosity,
+                  int, int>
+get_framework_arguments_from_options(const plugins::Options &opts);
 }
 
 
