@@ -82,6 +82,7 @@ create_fast_downward_library(
         search_space
         search_statistics
         state_id
+        state_partial
         state_registry
         task_id
         task_proxy
