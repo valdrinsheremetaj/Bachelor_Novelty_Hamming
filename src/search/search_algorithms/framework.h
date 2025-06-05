@@ -7,6 +7,7 @@
 #include <memory>
 #include <vector>
 #include <optional>
+#include "../utils/width_type.h" 
 
 class Evaluator;
 class PruningMethod;
@@ -17,19 +18,14 @@ class Feature;
 }
 
 namespace framework {
-    // enumeration for the type of width used in the search --> INT
-    enum class Widthtype {
-        NONE,
-        Hamming,
-        Novelty
-    };
+
 class Framework : public SearchAlgorithm {
     // rausnehmen
     const bool reopen_closed_nodes;
     Widthtype width_type;
     int width_k;
     std::unique_ptr<StateOpenList> open_list;
-    std::unique_ptr<ClosedList> closed;
+    std::unique_ptr<Closed> closed;
     std::optional<State> reference; // optional to delay initialization in constructor --> maybe a better way?
 
     
@@ -38,15 +34,11 @@ class Framework : public SearchAlgorithm {
 protected:
     virtual void initialize() override;
     virtual SearchStatus step() override;
-    bool progressCheck(const State &candidate, const State &reference) const;
-    bool expandCheck(const State &candidate, const ClosedList &closed, int k) const;
-    void updateClosed(const State &s, ClosedList &closed, int k) const;
+    bool progressCheck(const State &candidate, const State &reference);
+    bool expand_check(const State &candidate, Closed &closed, int k, const State &reference);
+    void updateClosed(const State &candidate, Closed &closed, int k);
     // Hamming Width helper functions
     int hamming_distance(const State &a, const State &b) const;
-    bool hamming_progress_check(const State &candidate, const State &reference);
-    bool hamming_expand_check(const State &candidate, const ClosedList &closed, int k, const State &reference);
-    void hamming_update_closed(const State &s, ClosedList &closed, int k);
-    bool novelty_progress_check(const State &candidate) const;
 
 
 
