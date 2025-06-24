@@ -34,7 +34,8 @@ namespace framework {
       width_k(width_k){
         if (width_type == 0) {this->width_type = Widthtype::Hamming;}
         else if (width_type == 1) {this->width_type = Widthtype::Novelty;}
-        else {throw runtime_error("Invalid width type specified. Use 0 for Hamming or 1 for Novelty.");}}
+        else if (width_type == 2) {this->width_type = Widthtype::Hybrid;}
+        else {throw runtime_error("Invalid width type specified. Use 0 for Hamming, 1 for Novelty or 2 for Hybrid.");}}
 
 void Framework::initialize() {
     log << "Conducting width-based search"
@@ -164,12 +165,30 @@ bool Framework::progressCheck(const State &candidate, const State &reference) {
     else if (width_type == Widthtype::Novelty) {
         return false;
     }
+    else if (width_type == Widthtype::Hybrid) {
+        // Same as Hamming, but used in hybrid
+        int wrong_candidate = 0, wrong_reference = 0;
+        for (const FactProxy &goal_fact : task_proxy.get_goals()) {
+            int var_id = goal_fact.get_variable().get_id();
+            int goal_val = goal_fact.get_value();
+            if (candidate[var_id].get_value() != goal_val) ++wrong_candidate;
+            if (reference[var_id].get_value() != goal_val) ++wrong_reference;
+        }
+        return wrong_candidate < wrong_reference;
+    }
 }
 void Framework::updateClosed(const State &candidate, Closed &closed, int k) {
     if (width_type == Widthtype::Hamming) {
         closed.mark_closed(candidate);
     } else if (width_type == Widthtype::Novelty) {
-        for (const PartialState &ps : generate_partial_states(candidate)) {
+        for (const PartialState &ps : generate_partial_states(candidate, k)) {
+            if (ps.size() == k) {
+                closed.mark_closed(ps);
+            }
+        }
+    } else if (width_type == Widthtype::Hybrid) {
+        closed.mark_closed(candidate);
+        for (const PartialState &ps : generate_partial_states(candidate, k)) {
             if (ps.size() == k) {
                 closed.mark_closed(ps);
             }
@@ -189,7 +208,22 @@ bool Framework::expand_check(const State &candidate, Closed &closed, int k, cons
         return hamming_distance(candidate, reference) <= k;
     } else if (width_type == Widthtype::Novelty) {
         bool found_novel = false;
-        for (const PartialState &ps : generate_partial_states(candidate)) {
+        for (const PartialState &ps : generate_partial_states(candidate, k)) {
+            if (ps.size() <= k && !closed.is_closed(ps)) {
+                found_novel = true;
+                closed.mark_closed(ps);
+            }
+        }
+        return found_novel;
+        
+    } else if (width_type == Widthtype::Hybrid) {
+        // Both Hamming and Novelty must hold
+        if (closed.is_closed(candidate))
+            return false;
+        if (hamming_distance(candidate, reference) > k)
+            return false;
+        bool found_novel = false;
+        for (const PartialState &ps : generate_partial_states(candidate, k)) {
             if (ps.size() <= k && !closed.is_closed(ps)) {
                 found_novel = true;
                 closed.mark_closed(ps);

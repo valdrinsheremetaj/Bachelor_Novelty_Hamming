@@ -33,7 +33,6 @@ public:
     
 
 };
-std::vector<PartialState> generate_partial_states(const State &s);
-
+std::vector<PartialState> generate_partial_states(const State &s, int k);
 
 #endif

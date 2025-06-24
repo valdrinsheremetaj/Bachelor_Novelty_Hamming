@@ -3,9 +3,9 @@
 
 // Enum class for width types used in Framework and Closed
 enum class Widthtype {
-    NONE,
     Hamming,
-    Novelty
+    Novelty,
+    Hybrid
 };
 
 #endif
