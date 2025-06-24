@@ -28,9 +28,6 @@ class Framework : public SearchAlgorithm {
     std::unique_ptr<Closed> closed;
     std::optional<State> reference; // optional to delay initialization in constructor --> maybe a better way?
 
-    
-
-
 protected:
     virtual void initialize() override;
     virtual SearchStatus step() override;
