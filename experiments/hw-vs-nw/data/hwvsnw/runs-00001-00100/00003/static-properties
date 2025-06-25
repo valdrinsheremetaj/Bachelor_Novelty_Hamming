@@ -1,0 +1,29 @@
+{
+  "algorithm": "fw-hw1",
+  "build_options": [],
+  "component_options": [
+    "--search",
+    "framework(open=single(eval=blind()), Widthtype=0, width_k=1)"
+  ],
+  "domain": "gripper",
+  "driver_options": [
+    "--validate",
+    "--overall-time-limit",
+    "30m",
+    "--overall-memory-limit",
+    "3584M",
+    "--overall-time-limit",
+    "5m"
+  ],
+  "experiment_name": "hwvsnw",
+  "global_revision": "259571980db62d09f1587cb3ebab368ab299d057",
+  "id": [
+    "fw-hw1",
+    "gripper",
+    "prob01.pddl"
+  ],
+  "local_revision": "code",
+  "problem": "prob01.pddl",
+  "repo": "/home/valdrin/downward/downward",
+  "run_dir": "runs-00001-00100/00003"
+}
