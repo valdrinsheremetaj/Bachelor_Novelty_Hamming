@@ -1,0 +1,122 @@
+INFO     planner time limit: 300s
+INFO     planner memory limit: 3584 MB
+
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: 299s
+INFO     translator memory limit: 3584 MB
+INFO     translator command line string: /home/valdrin/downward/downward/experiments/hw-vs-nw/.venv/bin/python3 /home/valdrin/downward/downward/experiments/hw-vs-nw/data/hwvsnw/code-259571980db62d09f1587cb3ebab368ab299d057_e5e41175/builds/release/bin/translate/translate.py domain.pddl problem.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.000s CPU, 0.003s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.003s wall-clock]
+Preparing model... [0.000s CPU, 0.001s wall-clock]
+Generated 46 rules.
+Computing model... [0.030s CPU, 0.022s wall-clock]
+3114 relevant atoms
+1522 auxiliary atoms
+4636 final queue length
+9238 total queue pushes
+Completing instantiation... [0.060s CPU, 0.070s wall-clock]
+Instantiating: [0.100s CPU, 0.097s wall-clock]
+Computing fact groups...
+Finding invariants...
+12 initial candidates
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+18 uncovered facts
+Choosing groups: [0.010s CPU, 0.008s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.010s CPU, 0.011s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Translator axioms removed by simplifying: 0
+Processing axioms: [0.000s CPU, 0.002s wall-clock]
+Translating task: [0.070s CPU, 0.075s wall-clock]
+225 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+52 propositions removed
+Detecting unreachable propositions: [0.030s CPU, 0.036s wall-clock]
+Reordering and filtering variables...
+19 of 19 variables necessary.
+1 of 19 mutex groups necessary.
+2384 of 2384 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.010s CPU, 0.007s wall-clock]
+Translator variables: 19
+Translator derived variables: 0
+Translator facts: 277
+Translator goal facts: 1
+Translator mutex groups: 1
+Translator total mutex groups size: 10
+Translator operators: 2384
+Translator axioms: 0
+Translator task size: 14119
+Translator peak memory: 44356 KB
+Writing output... [0.030s CPU, 0.022s wall-clock]
+Done! [0.250s CPU, 0.255s wall-clock]
+translate exit code: 0
+
+INFO     Running search (release).
+INFO     search stdin: output.sas
+INFO     search time limit: 299s
+INFO     search memory limit: 3584 MB
+INFO     search command line string: /home/valdrin/downward/downward/experiments/hw-vs-nw/data/hwvsnw/code-259571980db62d09f1587cb3ebab368ab299d057_e5e41175/builds/release/bin/downward --search 'framework(open=single(eval=blind()), Widthtype=0, width_k=1)' --internal-plan-file sas_plan < output.sas
+[t=0.000995s, 9808 KB] reading input...
+[t=0.008748s, 10420 KB] done reading input!
+[t=0.009773s, 10816 KB] Initializing blind search heuristic...
+[t=0.009773s, 10816 KB] Building successor generator...done!
+[t=0.010855s, 10980 KB] peak memory difference for successor generator creation: 164 KB
+[t=0.010855s, 10980 KB] time for successor generation creation: 0.001082s
+[t=0.010855s, 10980 KB] Variables: 19
+[t=0.010855s, 10980 KB] FactPairs: 277
+[t=0.010855s, 10980 KB] Bytes per state: 8
+[t=0.010855s, 10980 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=0.010855s, 10980 KB] Initial heuristic value for blind: 1
+[t=0.010855s, 10980 KB] Couldn't find a solution with width_k = 1
+[t=0.010855s, 10980 KB] Restarting search with increased width_k = 2
+[t=0.010855s, 10980 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=0.010855s, 10980 KB] Initial heuristic value for blind: 1
+[t=0.010855s, 10980 KB] Couldn't find a solution with width_k = 2
+[t=0.010855s, 10980 KB] Restarting search with increased width_k = 3
+[t=0.011870s, 10980 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=0.012138s, 10980 KB] Initial heuristic value for blind: 1
+[t=0.018154s, 11212 KB] Couldn't find a solution with width_k = 3
+[t=0.018804s, 11212 KB] Restarting search with increased width_k = 4
+[t=0.018819s, 11212 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=0.018829s, 11212 KB] Initial heuristic value for blind: 1
+[t=0.584845s, 14648 KB] Solution found!
+[t=0.584845s, 14648 KB] Found a solution with width_k = 4
+[t=0.584845s, 14648 KB] Actual search time: 0.573990s
+[t=0.584845s, 14648 KB] Plan length: 0 step(s).
+[t=0.584845s, 14648 KB] Plan cost: 0
+[t=0.584845s, 14648 KB] Expanded 15092 state(s).
+[t=0.584845s, 14648 KB] Reopened 0 state(s).
+[t=0.584845s, 14648 KB] Evaluated 18561 state(s).
+[t=0.584845s, 14648 KB] Evaluations: 17371
+[t=0.584845s, 14648 KB] Generated 48447 state(s).
+[t=0.584845s, 14648 KB] Dead ends: 0 state(s).
+[t=0.584845s, 14648 KB] Number of registered states: 18960
+[t=0.584845s, 14648 KB] Int hash set load factor: 18960/32768 = 0.578613
+[t=0.584845s, 14648 KB] Int hash set resizes: 15
+[t=0.584845s, 14648 KB] Search time: 0.573990s
+[t=0.584845s, 14648 KB] Total time: 0.584845s
+Solution found.
+Peak memory: 14648 KB
+Remove intermediate file output.sas
+search exit code: 0
+

@@ -55,7 +55,8 @@ void Framework::initialize() {
 
     open_list->insert(eval_context, initial_state.get_id());
 
-    print_initial_evaluator_values(eval_context);
+    //print_initial_evaluator_values(eval_context);
+    log << "HELLOO: " << endl;
 }
     
 
@@ -143,8 +144,10 @@ int Framework::hamming_distance(const State &a, const State &b) const {
     }
     return dist;
 }
+
 bool Framework::progressCheck(const State &candidate, const State &reference) {
     if (width_type == Widthtype::Hamming) {
+        // return progressCheckHamming(candidate, reference);
         int wrong_candidate = 0;
         int wrong_reference = 0;
 
@@ -163,10 +166,12 @@ bool Framework::progressCheck(const State &candidate, const State &reference) {
     return wrong_candidate < wrong_reference;
     }
     else if (width_type == Widthtype::Novelty) {
+        // return progressCheckNovelty(candidate, reference);
         return false;
     }
     else if (width_type == Widthtype::Hybrid) {
         // Same as Hamming, but used in hybrid
+        // return progressCheckHamming(candidate, reference) AND/OR progressCheckNovelty(candidate, reference);
         int wrong_candidate = 0, wrong_reference = 0;
         for (const FactProxy &goal_fact : task_proxy.get_goals()) {
             int var_id = goal_fact.get_variable().get_id();
