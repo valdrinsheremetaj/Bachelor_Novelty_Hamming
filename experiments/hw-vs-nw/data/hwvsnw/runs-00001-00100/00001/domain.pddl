@@ -1,1 +1,1 @@
-../../../../../../downward-benchmarks/depot/domain.pddl
+../../../../../../downward-benchmarks/logistics00/domain.pddl

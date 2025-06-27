@@ -55,7 +55,7 @@ void Framework::initialize() {
 
     open_list->insert(eval_context, initial_state.get_id());
 
-    //print_initial_evaluator_values(eval_context);
+    print_initial_evaluator_values(eval_context);
     log << "HELLOO: " << endl;
 }
     

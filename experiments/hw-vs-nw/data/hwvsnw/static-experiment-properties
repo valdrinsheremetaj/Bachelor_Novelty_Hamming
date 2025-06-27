@@ -4,12 +4,14 @@
     "fw-nw2"
   ],
   "experiment_file": "hwvsnw.py",
-  "runs": 6,
+  "runs": 10,
   "suite": {
     "/home/valdrin/downward/downward/downward-benchmarks": [
-      "depot:p01.pddl",
-      "grid:prob01.pddl",
-      "gripper:prob01.pddl"
+      "logistics00:probLOGISTICS-4-0.pddl",
+      "blocks:probBLOCKS-4-0.pddl",
+      "blocks:probBLOCKS-4-1.pddl",
+      "blocks:probBLOCKS-4-2.pddl",
+      "blocks:probBLOCKS-5-0.pddl"
     ]
   }
 }

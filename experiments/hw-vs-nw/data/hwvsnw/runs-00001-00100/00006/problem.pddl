@@ -1,1 +1,1 @@
-../../../../../../downward-benchmarks/gripper/prob01.pddl
+../../../../../../downward-benchmarks/logistics00/probLOGISTICS-4-0.pddl

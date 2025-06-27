@@ -16,19 +16,31 @@ if project.REMOTE:
     SUITE = project.SUITE_SATISFICING
     ENV = project.BaselSlurmEnvironment(email="my.name@myhost.ch")
 else:
-    SUITE = ["depot:p01.pddl", "grid:prob01.pddl", "gripper:prob01.pddl"]
+    #SUITE = [f"gripper:prob{str(i).zfill(2)}.pddl" for i in range(1, 21)]
+    SUITE = [
+    "logistics00:probLOGISTICS-4-0.pddl",
+    #"logistics00:probLOGISTICS-15-1.pddl",
+    "blocks:probBLOCKS-4-0.pddl",
+    "blocks:probBLOCKS-4-1.pddl",
+    "blocks:probBLOCKS-4-2.pddl",
+    "blocks:probBLOCKS-5-0.pddl",
+    ]
+
     ENV = project.LocalEnvironment(processes=2)
+
 
 CONFIGS = [
     ("fw-hw1", ["--search", 'framework(open=single(eval=blind()), Widthtype=0, width_k=1)']),
     ("fw-nw2", ["--search", 'framework(open=single(eval=blind()), Widthtype=1, width_k=1)']),
+    #("fw-nw3", ["--search", 'framework(open=single(eval=blind()), Widthtype=2, width_k=1)']),
 ]
 
 
+
 BUILD_OPTIONS = []
-DRIVER_OPTIONS = ["--overall-time-limit", "5m"]
+DRIVER_OPTIONS = ["--overall-time-limit", "10m"]
 REV_NICKS = [
-    ("code", ""),
+    ("hw-vs-nw", ""),
 ]
 ATTRIBUTES = [
     "error",
@@ -39,6 +51,7 @@ ATTRIBUTES = [
     "coverage",
     "expansions",
     "memory",
+    "width_k",
     project.EVALUATIONS_PER_TIME,
 ]
 
@@ -76,8 +89,9 @@ project.add_absolute_report(
 
 attributes = ["expansions"]
 pairs = [
-    ("fw-hw1", "fw-nw2"),
+    ("fw-hw1","fw-nw2"),
 ]
+
 
 suffix = "-rel" if project.RELATIVE else ""
 for algo1, algo2 in pairs:

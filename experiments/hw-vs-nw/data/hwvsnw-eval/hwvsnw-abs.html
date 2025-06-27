@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", show_main_tables);
 <header>
 <hgroup>
 <h1>hwvsnw-abs</h1>
-<h3>2025-06-25</h3>
+<h3>2025-06-27</h3>
 </hgroup>
 </header>
 
@@ -122,43 +122,49 @@ document.addEventListener("DOMContentLoaded", show_main_tables);
 </li>
 <li><strong><a href="#coverage" onclick="show_table(document.getElementById('coverage'));">coverage</a></strong>
   <ul>
-  <li><a href="#coverage-depot" onclick="show_table(document.getElementById('coverage-depot'));">depot</a> <a href="#coverage-grid" onclick="show_table(document.getElementById('coverage-grid'));">grid</a> <a href="#coverage-gripper" onclick="show_table(document.getElementById('coverage-gripper'));">gripper</a>
+  <li><a href="#coverage-blocks" onclick="show_table(document.getElementById('coverage-blocks'));">blocks</a> <a href="#coverage-logistics00" onclick="show_table(document.getElementById('coverage-logistics00'));">logistics00</a>
   </li>
   </ul>
 </li>
 <li><strong><a href="#error" onclick="show_table(document.getElementById('error'));">error</a></strong>
   <ul>
-  <li><a href="#error-error-driver-input-error" onclick="show_table(document.getElementById('error-error-driver-input-error'));">error-driver-input-error</a> <a href="#error-depot" onclick="show_table(document.getElementById('error-depot'));">depot</a> <a href="#error-grid" onclick="show_table(document.getElementById('error-grid'));">grid</a> <a href="#error-gripper" onclick="show_table(document.getElementById('error-gripper'));">gripper</a>
+  <li><a href="#error-error-success" onclick="show_table(document.getElementById('error-error-success'));">error-success</a> <a href="#error-blocks" onclick="show_table(document.getElementById('error-blocks'));">blocks</a> <a href="#error-logistics00" onclick="show_table(document.getElementById('error-logistics00'));">logistics00</a>
   </li>
   </ul>
 </li>
 <li><strong><a href="#evaluations_per_time" onclick="show_table(document.getElementById('evaluations_per_time'));">evaluations_per_time</a></strong>
   <ul>
-  <li><a href="#evaluations_per_time-depot" onclick="show_table(document.getElementById('evaluations_per_time-depot'));">depot</a> <a href="#evaluations_per_time-grid" onclick="show_table(document.getElementById('evaluations_per_time-grid'));">grid</a> <a href="#evaluations_per_time-gripper" onclick="show_table(document.getElementById('evaluations_per_time-gripper'));">gripper</a>
+  <li><a href="#evaluations_per_time-blocks" onclick="show_table(document.getElementById('evaluations_per_time-blocks'));">blocks</a> <a href="#evaluations_per_time-logistics00" onclick="show_table(document.getElementById('evaluations_per_time-logistics00'));">logistics00</a>
   </li>
   </ul>
 </li>
 <li><strong><a href="#expansions" onclick="show_table(document.getElementById('expansions'));">expansions</a></strong>
   <ul>
-  <li><a href="#expansions-depot" onclick="show_table(document.getElementById('expansions-depot'));">depot</a> <a href="#expansions-grid" onclick="show_table(document.getElementById('expansions-grid'));">grid</a> <a href="#expansions-gripper" onclick="show_table(document.getElementById('expansions-gripper'));">gripper</a>
+  <li><a href="#expansions-blocks" onclick="show_table(document.getElementById('expansions-blocks'));">blocks</a> <a href="#expansions-logistics00" onclick="show_table(document.getElementById('expansions-logistics00'));">logistics00</a>
   </li>
   </ul>
 </li>
 <li><strong><a href="#memory" onclick="show_table(document.getElementById('memory'));">memory</a></strong>
   <ul>
-  <li><a href="#memory-depot" onclick="show_table(document.getElementById('memory-depot'));">depot</a> <a href="#memory-grid" onclick="show_table(document.getElementById('memory-grid'));">grid</a> <a href="#memory-gripper" onclick="show_table(document.getElementById('memory-gripper'));">gripper</a>
+  <li><a href="#memory-blocks" onclick="show_table(document.getElementById('memory-blocks'));">blocks</a> <a href="#memory-logistics00" onclick="show_table(document.getElementById('memory-logistics00'));">logistics00</a>
   </li>
   </ul>
 </li>
 <li><strong><a href="#run_dir" onclick="show_table(document.getElementById('run_dir'));">run_dir</a></strong>
   <ul>
-  <li><a href="#run_dir-depot" onclick="show_table(document.getElementById('run_dir-depot'));">depot</a> <a href="#run_dir-grid" onclick="show_table(document.getElementById('run_dir-grid'));">grid</a> <a href="#run_dir-gripper" onclick="show_table(document.getElementById('run_dir-gripper'));">gripper</a>
+  <li><a href="#run_dir-blocks" onclick="show_table(document.getElementById('run_dir-blocks'));">blocks</a> <a href="#run_dir-logistics00" onclick="show_table(document.getElementById('run_dir-logistics00'));">logistics00</a>
   </li>
   </ul>
 </li>
 <li><strong><a href="#total_time" onclick="show_table(document.getElementById('total_time'));">total_time</a></strong>
   <ul>
-  <li><a href="#total_time-depot" onclick="show_table(document.getElementById('total_time-depot'));">depot</a> <a href="#total_time-grid" onclick="show_table(document.getElementById('total_time-grid'));">grid</a> <a href="#total_time-gripper" onclick="show_table(document.getElementById('total_time-gripper'));">gripper</a>
+  <li><a href="#total_time-blocks" onclick="show_table(document.getElementById('total_time-blocks'));">blocks</a> <a href="#total_time-logistics00" onclick="show_table(document.getElementById('total_time-logistics00'));">logistics00</a>
+  </li>
+  </ul>
+</li>
+<li><strong><a href="#width_k" onclick="show_table(document.getElementById('width_k'));">width_k</a></strong>
+  <ul>
+  <li><a href="#width_k-blocks" onclick="show_table(document.getElementById('width_k-blocks'));">blocks</a> <a href="#width_k-logistics00" onclick="show_table(document.getElementById('width_k-logistics00'));">logistics00</a>
   </li>
   </ul>
 </li>
@@ -174,15 +180,6 @@ document.addEventListener("DOMContentLoaded", show_main_tables);
 <tr>
 <th>Unexplained errors</th> <th>algorithm</th> <th>domain</th> <th>problem</th> <th>error</th> <th>planner_wall_clock_time</th> <th>raw_memory</th> <th>node</th> <th>run_dir</th>
 </tr>
-<tr>
-<td rowspan="6">['driver-input-error',&nbsp;'multiple&nbsp;initial&nbsp;h&nbsp;values&nbsp;found&nbsp;for&nbsp;blind',&nbsp;'run.err:&nbsp;Error:&nbsp;Trying&nbsp;to&nbsp;run&nbsp;validate&nbsp;but&nbsp;it&nbsp;was&nbsp;not&nbsp;found&nbsp;on&nbsp;the&nbsp;PATH.<br />']</td>
-<td>fw-hw1</td> <td>depot</td> <td>p01.pddl</td> <td>driver-input-error</td> <td>0.26</td> <td>10064</td> <td>valdrin</td> <td>runs-00001-00100/00001</td>
-</tr>
-<tr><td>fw-hw1</td> <td>grid</td> <td>prob01.pddl</td> <td>driver-input-error</td> <td>1.19</td> <td>14648</td> <td>valdrin</td> <td>runs-00001-00100/00002</td></tr>
-<tr><td>fw-hw1</td> <td>gripper</td> <td>prob01.pddl</td> <td>driver-input-error</td> <td>0.11</td> <td>10064</td> <td>valdrin</td> <td>runs-00001-00100/00003</td></tr>
-<tr><td>fw-nw2</td> <td>depot</td> <td>p01.pddl</td> <td>driver-input-error</td> <td>2.87</td> <td>10572</td> <td>valdrin</td> <td>runs-00001-00100/00004</td></tr>
-<tr><td>fw-nw2</td> <td>grid</td> <td>prob01.pddl</td> <td>driver-input-error</td> <td>0.94</td> <td>11096</td> <td>valdrin</td> <td>runs-00001-00100/00005</td></tr>
-<tr><td>fw-nw2</td> <td>gripper</td> <td>prob01.pddl</td> <td>driver-input-error</td> <td>0.29</td> <td>10340</td> <td>valdrin</td> <td>runs-00001-00100/00006</td></tr>
 </table>
 
 </section>
@@ -201,16 +198,16 @@ document.addEventListener("DOMContentLoaded", show_main_tables);
 </tr>
 <tr>
 <td>fw-hw1</td>
-<td>code</td>
-<td>259571980db62d09f1587cb3ebab368ab299d057</td>
-<td>['--validate', '--overall-time-limit', '30m', '--overall-memory-limit', '3584M', '--overall-time-limit', '5m']</td>
+<td>hw-vs-nw</td>
+<td>8cfc3cd96b43071d367ea402fd9dfee6c82d71a7</td>
+<td>['--overall-time-limit', '30m', '--overall-memory-limit', '3584M', '--overall-time-limit', '10m']</td>
 <td>['--search', 'framework(open=single(eval=blind()), Widthtype=0, width_k=1)']</td>
 </tr>
 <tr>
 <td>fw-nw2</td>
-<td>code</td>
-<td>259571980db62d09f1587cb3ebab368ab299d057</td>
-<td>['--validate', '--overall-time-limit', '30m', '--overall-memory-limit', '3584M', '--overall-time-limit', '5m']</td>
+<td>hw-vs-nw</td>
+<td>8cfc3cd96b43071d367ea402fd9dfee6c82d71a7</td>
+<td>['--overall-time-limit', '30m', '--overall-memory-limit', '3584M', '--overall-time-limit', '10m']</td>
 <td>['--search', 'framework(open=single(eval=blind()), Widthtype=1, width_k=1)']</td>
 </tr>
 </table>
@@ -233,33 +230,38 @@ Used nodes: [valdrin]
 </tr>
 <tr>
 <td><a href="#coverage" onclick="show_table(document.getElementById('coverage'));">coverage - Sum</a></td>
-<td class="right"><span style="color:rgb(127,127,127)">3</span></td>
-<td class="right"><span style="color:rgb(127,127,127)">3</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">5</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">5</span></td>
 </tr>
 <tr>
-<td><a href="#error-error-driver-input-error" onclick="show_table(document.getElementById('error-error-driver-input-error'));">error-driver-input-error - Sum</a></td>
-<td class="right"><span style="color:rgb(127,127,127)">3</span></td>
-<td class="right"><span style="color:rgb(127,127,127)">3</span></td>
+<td><a href="#error-error-success" onclick="show_table(document.getElementById('error-error-success'));">error-success - Sum</a></td>
+<td class="right"><span style="color:rgb(127,127,127)">5</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">5</span></td>
 </tr>
 <tr>
 <td><a href="#evaluations_per_time" onclick="show_table(document.getElementById('evaluations_per_time'));">evaluations_per_time - Geometric mean</a></td>
-<td class="right"><span style="color:rgb(0,178,0)">19371.85</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">609.09</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">332298.14</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">179.40</span></td>
 </tr>
 <tr>
 <td><a href="#expansions" onclick="show_table(document.getElementById('expansions'));">expansions - Geometric mean</a></td>
-<td class="right"><span style="color:rgb(0,0,178)">709.25</span></td>
-<td class="right"><span style="color:rgb(0,178,0)">685.97</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">178.05</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">1886.47</span></td>
 </tr>
 <tr>
 <td><a href="#memory" onclick="show_table(document.getElementById('memory'));">memory - Sum</a></td>
-<td class="right"><span style="color:rgb(0,0,178)">34776</span></td>
-<td class="right"><span style="color:rgb(0,178,0)">32008</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">50240</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">54672</span></td>
 </tr>
 <tr>
 <td><a href="#total_time" onclick="show_table(document.getElementById('total_time'));">total_time - Geometric mean</a></td>
-<td class="right"><span style="color:rgb(0,178,0)">0.04</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">0.59</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">0.00</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">2.01</span></td>
+</tr>
+<tr>
+<td><a href="#width_k" onclick="show_table(document.getElementById('width_k'));">width_k - Sum</a></td>
+<td class="right"><span style="color:rgb(0,0,178)">23</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">17</span></td>
 </tr>
 </table>
 
@@ -276,24 +278,19 @@ Used nodes: [valdrin]
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td><a href="#coverage-depot" onclick="show_table(document.getElementById('coverage-depot'));">depot</a> (1)</td>
+<td><a href="#coverage-blocks" onclick="show_table(document.getElementById('coverage-blocks'));">blocks</a> (4)</td>
+<td class="right"><span style="color:rgb(127,127,127)">4</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">4</span></td>
+</tr>
+<tr>
+<td><a href="#coverage-logistics00" onclick="show_table(document.getElementById('coverage-logistics00'));">logistics00</a> (1)</td>
 <td class="right"><span style="color:rgb(127,127,127)">1</span></td>
 <td class="right"><span style="color:rgb(127,127,127)">1</span></td>
 </tr>
 <tr>
-<td><a href="#coverage-grid" onclick="show_table(document.getElementById('coverage-grid'));">grid</a> (1)</td>
-<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
-<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
-</tr>
-<tr>
-<td><a href="#coverage-gripper" onclick="show_table(document.getElementById('coverage-gripper'));">gripper</a> (1)</td>
-<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
-<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
-</tr>
-<tr>
-<td><strong>Sum (3)</strong></td>
-<td class="right"><span style="color:rgb(127,127,127)">3</span></td>
-<td class="right"><span style="color:rgb(127,127,127)">3</span></td>
+<td><strong>Sum (5)</strong></td>
+<td class="right"><span style="color:rgb(127,127,127)">5</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">5</span></td>
 </tr>
 </table>
 
@@ -301,8 +298,8 @@ Used nodes: [valdrin]
 The bottom row reports the sum across all domains.
 </p>
 
-<section id="coverage-depot">
-<h3>depot</h3>
+<section id="coverage-blocks">
+<h3>blocks</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -313,15 +310,30 @@ The bottom row reports the sum across all domains.
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>p01.pddl</td>
+<td>probBLOCKS-4-0.pddl</td>
+<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-4-1.pddl</td>
+<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-4-2.pddl</td>
+<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-5-0.pddl</td>
 <td class="right"><span style="color:rgb(127,127,127)">1</span></td>
 <td class="right"><span style="color:rgb(127,127,127)">1</span></td>
 </tr>
 </table>
 
 </section>
-<section id="coverage-grid">
-<h3>grid</h3>
+<section id="coverage-logistics00">
+<h3>logistics00</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -332,26 +344,7 @@ The bottom row reports the sum across all domains.
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>prob01.pddl</td>
-<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
-<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
-</tr>
-</table>
-
-</section>
-<section id="coverage-gripper">
-<h3>gripper</h3>
-
-<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
-
-<table class="tableborder" style="display:none">
-<tr>
-<th>coverage</th>
-<th>fw-hw1</th>
-<th>fw-nw2</th>
-</tr>
-<tr>
-<td>prob01.pddl</td>
+<td>probLOGISTICS-4-0.pddl</td>
 <td class="right"><span style="color:rgb(127,127,127)">1</span></td>
 <td class="right"><span style="color:rgb(127,127,127)">1</span></td>
 </tr>
@@ -362,42 +355,37 @@ The bottom row reports the sum across all domains.
 <section id="error">
 <h2>error</h2>
 
-<section id="error-error-driver-input-error">
-<h3>error-driver-input-error</h3>
+<section id="error-error-success">
+<h3>error-success</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
 <table class="tableborder" style="display:none">
 <tr>
-<th>error-driver-input-error</th>
+<th>error-success</th>
 <th>fw-hw1</th>
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td><a href="#error-depot" onclick="show_table(document.getElementById('error-depot'));">depot</a></td>
-<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
-<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
+<td><a href="#error-blocks" onclick="show_table(document.getElementById('error-blocks'));">blocks</a></td>
+<td class="right"><span style="color:rgb(127,127,127)">4</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">4</span></td>
 </tr>
 <tr>
-<td><a href="#error-grid" onclick="show_table(document.getElementById('error-grid'));">grid</a></td>
-<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
-<td class="right"><span style="color:rgb(127,127,127)">1</span></td>
-</tr>
-<tr>
-<td><a href="#error-gripper" onclick="show_table(document.getElementById('error-gripper'));">gripper</a></td>
+<td><a href="#error-logistics00" onclick="show_table(document.getElementById('error-logistics00'));">logistics00</a></td>
 <td class="right"><span style="color:rgb(127,127,127)">1</span></td>
 <td class="right"><span style="color:rgb(127,127,127)">1</span></td>
 </tr>
 <tr>
 <td><strong>Sum</strong></td>
-<td class="right"><span style="color:rgb(127,127,127)">3</span></td>
-<td class="right"><span style="color:rgb(127,127,127)">3</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">5</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">5</span></td>
 </tr>
 </table>
 
 </section>
-<section id="error-depot">
-<h3>depot</h3>
+<section id="error-blocks">
+<h3>blocks</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -408,15 +396,30 @@ The bottom row reports the sum across all domains.
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>p01.pddl</td>
-<td>driver-input-error</td>
-<td>driver-input-error</td>
+<td>probBLOCKS-4-0.pddl</td>
+<td>success</td>
+<td>success</td>
+</tr>
+<tr>
+<td>probBLOCKS-4-1.pddl</td>
+<td>success</td>
+<td>success</td>
+</tr>
+<tr>
+<td>probBLOCKS-4-2.pddl</td>
+<td>success</td>
+<td>success</td>
+</tr>
+<tr>
+<td>probBLOCKS-5-0.pddl</td>
+<td>success</td>
+<td>success</td>
 </tr>
 </table>
 
 </section>
-<section id="error-grid">
-<h3>grid</h3>
+<section id="error-logistics00">
+<h3>logistics00</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -427,28 +430,9 @@ The bottom row reports the sum across all domains.
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>prob01.pddl</td>
-<td>driver-input-error</td>
-<td>driver-input-error</td>
-</tr>
-</table>
-
-</section>
-<section id="error-gripper">
-<h3>gripper</h3>
-
-<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
-
-<table class="tableborder" style="display:none">
-<tr>
-<th>error</th>
-<th>fw-hw1</th>
-<th>fw-nw2</th>
-</tr>
-<tr>
-<td>prob01.pddl</td>
-<td>driver-input-error</td>
-<td>driver-input-error</td>
+<td>probLOGISTICS-4-0.pddl</td>
+<td>success</td>
+<td>success</td>
 </tr>
 </table>
 
@@ -466,24 +450,19 @@ The bottom row reports the sum across all domains.
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td><a href="#evaluations_per_time-depot" onclick="show_table(document.getElementById('evaluations_per_time-depot'));">depot</a> (1)</td>
-<td class="right"><span style="color:rgb(0,178,0)">12400.0</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">136.1</span></td>
-</tr>
-<tr>
-<td><a href="#evaluations_per_time-grid" onclick="show_table(document.getElementById('evaluations_per_time-grid'));">grid</a> (1)</td>
-<td class="right"><span style="color:rgb(0,178,0)">30263.6</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">2725.4</span></td>
-</tr>
-<tr>
-<td><a href="#evaluations_per_time-gripper" onclick="show_table(document.getElementById('evaluations_per_time-gripper'));">gripper</a> (0)</td>
+<td><a href="#evaluations_per_time-blocks" onclick="show_table(document.getElementById('evaluations_per_time-blocks'));">blocks</a> (0)</td>
 <td class="right"><span style="color:rgb(127,127,127)">None</span></td>
 <td class="right"><span style="color:rgb(127,127,127)">None</span></td>
 </tr>
 <tr>
-<td><strong>Geometric mean (2)</strong></td>
-<td class="right"><span style="color:rgb(0,178,0)">19371.8</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">609.1</span></td>
+<td><a href="#evaluations_per_time-logistics00" onclick="show_table(document.getElementById('evaluations_per_time-logistics00'));">logistics00</a> (1)</td>
+<td class="right"><span style="color:rgb(0,178,0)">332298.1</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">179.4</span></td>
+</tr>
+<tr>
+<td><strong>Geometric mean (1)</strong></td>
+<td class="right"><span style="color:rgb(0,178,0)">332298.1</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">179.4</span></td>
 </tr>
 </table>
 
@@ -491,8 +470,8 @@ The bottom row reports the sum across all domains.
 Only tasks where all algorithms have a value for "evaluations_per_time" are considered. Each table entry gives the geometric mean of "evaluations_per_time" for that domain. The bottom row reports the geometric mean across all domains.
 </p>
 
-<section id="evaluations_per_time-depot">
-<h3>depot</h3>
+<section id="evaluations_per_time-blocks">
+<h3>blocks</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -503,47 +482,43 @@ Only tasks where all algorithms have a value for "evaluations_per_time" are cons
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>p01.pddl</td>
-<td class="right"><span style="color:rgb(0,178,0)">12400.0</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">136.1</span></td>
-</tr>
-</table>
-
-</section>
-<section id="evaluations_per_time-grid">
-<h3>grid</h3>
-
-<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
-
-<table class="tableborder" style="display:none">
-<tr>
-<th>evaluations_<wbr>per_<wbr>time</th>
-<th>fw-hw1</th>
-<th>fw-nw2</th>
-</tr>
-<tr>
-<td>prob01.pddl</td>
-<td class="right"><span style="color:rgb(0,178,0)">30263.6</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">2725.4</span></td>
-</tr>
-</table>
-
-</section>
-<section id="evaluations_per_time-gripper">
-<h3>gripper</h3>
-
-<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
-
-<table class="tableborder" style="display:none">
-<tr>
-<th>evaluations_<wbr>per_<wbr>time</th>
-<th>fw-hw1</th>
-<th>fw-nw2</th>
-</tr>
-<tr>
-<td>prob01.pddl</td>
+<td>probBLOCKS-4-0.pddl</td>
 <td class="right"><span style="color:rgb(127,127,127)">None</span></td>
-<td class="right"><span style="color:rgb(0,178,0)">1729.8</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">3528.8</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-4-1.pddl</td>
+<td class="right"><span style="color:rgb(127,127,127)">None</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">None</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-4-2.pddl</td>
+<td class="right"><span style="color:rgb(127,127,127)">None</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">None</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-5-0.pddl</td>
+<td class="right"><span style="color:rgb(127,127,127)">None</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">79.0</span></td>
+</tr>
+</table>
+
+</section>
+<section id="evaluations_per_time-logistics00">
+<h3>logistics00</h3>
+
+<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
+
+<table class="tableborder" style="display:none">
+<tr>
+<th>evaluations_<wbr>per_<wbr>time</th>
+<th>fw-hw1</th>
+<th>fw-nw2</th>
+</tr>
+<tr>
+<td>probLOGISTICS-4-0.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">332298.1</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">179.4</span></td>
 </tr>
 </table>
 
@@ -561,24 +536,19 @@ Only tasks where all algorithms have a value for "evaluations_per_time" are cons
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td><a href="#expansions-depot" onclick="show_table(document.getElementById('expansions-depot'));">depot</a> (1)</td>
-<td class="right"><span style="color:rgb(0,178,0)">197.00</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">393.00</span></td>
+<td><a href="#expansions-blocks" onclick="show_table(document.getElementById('expansions-blocks'));">blocks</a> (4)</td>
+<td class="right"><span style="color:rgb(0,178,0)">88.06</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">212.93</span></td>
 </tr>
 <tr>
-<td><a href="#expansions-grid" onclick="show_table(document.getElementById('expansions-grid'));">grid</a> (1)</td>
-<td class="right"><span style="color:rgb(0,0,178)">15092.00</span></td>
-<td class="right"><span style="color:rgb(0,178,0)">1170.00</span></td>
+<td><a href="#expansions-logistics00" onclick="show_table(document.getElementById('expansions-logistics00'));">logistics00</a> (1)</td>
+<td class="right"><span style="color:rgb(0,178,0)">360.00</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">16713.00</span></td>
 </tr>
 <tr>
-<td><a href="#expansions-gripper" onclick="show_table(document.getElementById('expansions-gripper'));">gripper</a> (1)</td>
-<td class="right"><span style="color:rgb(0,178,0)">120.00</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">702.00</span></td>
-</tr>
-<tr>
-<td><strong>Geometric mean (3)</strong></td>
-<td class="right"><span style="color:rgb(0,0,178)">709.25</span></td>
-<td class="right"><span style="color:rgb(0,178,0)">685.97</span></td>
+<td><strong>Geometric mean (5)</strong></td>
+<td class="right"><span style="color:rgb(0,178,0)">178.05</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">1886.47</span></td>
 </tr>
 </table>
 
@@ -586,8 +556,8 @@ Only tasks where all algorithms have a value for "evaluations_per_time" are cons
 Only tasks where all algorithms have a value for "expansions" are considered. Each table entry gives the geometric mean of "expansions" for that domain. The bottom row reports the geometric mean across all domains.
 </p>
 
-<section id="expansions-depot">
-<h3>depot</h3>
+<section id="expansions-blocks">
+<h3>blocks</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -598,15 +568,30 @@ Only tasks where all algorithms have a value for "expansions" are considered. Ea
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>p01.pddl</td>
-<td class="right"><span style="color:rgb(0,178,0)">197</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">393</span></td>
+<td>probBLOCKS-4-0.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">24</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">178</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-4-1.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">111</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">142</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-4-2.pddl</td>
+<td class="right"><span style="color:rgb(0,0,178)">185</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">63</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-5-0.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">122</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">1291</span></td>
 </tr>
 </table>
 
 </section>
-<section id="expansions-grid">
-<h3>grid</h3>
+<section id="expansions-logistics00">
+<h3>logistics00</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -617,28 +602,9 @@ Only tasks where all algorithms have a value for "expansions" are considered. Ea
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>prob01.pddl</td>
-<td class="right"><span style="color:rgb(0,0,178)">15092</span></td>
-<td class="right"><span style="color:rgb(0,178,0)">1170</span></td>
-</tr>
-</table>
-
-</section>
-<section id="expansions-gripper">
-<h3>gripper</h3>
-
-<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
-
-<table class="tableborder" style="display:none">
-<tr>
-<th>expansions</th>
-<th>fw-hw1</th>
-<th>fw-nw2</th>
-</tr>
-<tr>
-<td>prob01.pddl</td>
-<td class="right"><span style="color:rgb(0,178,0)">120</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">702</span></td>
+<td>probLOGISTICS-4-0.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">360</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">16713</span></td>
 </tr>
 </table>
 
@@ -656,24 +622,19 @@ Only tasks where all algorithms have a value for "expansions" are considered. Ea
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td><a href="#memory-depot" onclick="show_table(document.getElementById('memory-depot'));">depot</a> (1)</td>
-<td class="right"><span style="color:rgb(0,178,0)">10064</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">10572</span></td>
+<td><a href="#memory-blocks" onclick="show_table(document.getElementById('memory-blocks'));">blocks</a> (4)</td>
+<td class="right"><span style="color:rgb(0,178,0)">40192</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">42388</span></td>
 </tr>
 <tr>
-<td><a href="#memory-grid" onclick="show_table(document.getElementById('memory-grid'));">grid</a> (1)</td>
-<td class="right"><span style="color:rgb(0,0,178)">14648</span></td>
-<td class="right"><span style="color:rgb(0,178,0)">11096</span></td>
+<td><a href="#memory-logistics00" onclick="show_table(document.getElementById('memory-logistics00'));">logistics00</a> (1)</td>
+<td class="right"><span style="color:rgb(0,178,0)">10048</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">12284</span></td>
 </tr>
 <tr>
-<td><a href="#memory-gripper" onclick="show_table(document.getElementById('memory-gripper'));">gripper</a> (1)</td>
-<td class="right"><span style="color:rgb(0,178,0)">10064</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">10340</span></td>
-</tr>
-<tr>
-<td><strong>Sum (3)</strong></td>
-<td class="right"><span style="color:rgb(0,0,178)">34776</span></td>
-<td class="right"><span style="color:rgb(0,178,0)">32008</span></td>
+<td><strong>Sum (5)</strong></td>
+<td class="right"><span style="color:rgb(0,178,0)">50240</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">54672</span></td>
 </tr>
 </table>
 
@@ -681,8 +642,8 @@ Only tasks where all algorithms have a value for "expansions" are considered. Ea
 Only tasks where all algorithms have a value for "memory" are considered. Each table entry gives the sum of "memory" for that domain. The bottom row reports the sum across all domains.
 </p>
 
-<section id="memory-depot">
-<h3>depot</h3>
+<section id="memory-blocks">
+<h3>blocks</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -693,15 +654,30 @@ Only tasks where all algorithms have a value for "memory" are considered. Each t
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>p01.pddl</td>
-<td class="right"><span style="color:rgb(0,178,0)">10064</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">10572</span></td>
+<td>probBLOCKS-4-0.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">10048</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">10184</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-4-1.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">10048</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">10184</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-4-2.pddl</td>
+<td class="right"><span style="color:rgb(127,127,127)">10048</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">10048</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-5-0.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">10048</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">11972</span></td>
 </tr>
 </table>
 
 </section>
-<section id="memory-grid">
-<h3>grid</h3>
+<section id="memory-logistics00">
+<h3>logistics00</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -712,28 +688,9 @@ Only tasks where all algorithms have a value for "memory" are considered. Each t
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>prob01.pddl</td>
-<td class="right"><span style="color:rgb(0,0,178)">14648</span></td>
-<td class="right"><span style="color:rgb(0,178,0)">11096</span></td>
-</tr>
-</table>
-
-</section>
-<section id="memory-gripper">
-<h3>gripper</h3>
-
-<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
-
-<table class="tableborder" style="display:none">
-<tr>
-<th>memory</th>
-<th>fw-hw1</th>
-<th>fw-nw2</th>
-</tr>
-<tr>
-<td>prob01.pddl</td>
-<td class="right"><span style="color:rgb(0,178,0)">10064</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">10340</span></td>
+<td>probLOGISTICS-4-0.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">10048</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">12284</span></td>
 </tr>
 </table>
 
@@ -746,8 +703,8 @@ Only tasks where all algorithms have a value for "memory" are considered. Each t
 Per-domain reports only support numeric attributes, but run_dir has type str.
 </p>
 
-<section id="run_dir-depot">
-<h3>depot</h3>
+<section id="run_dir-blocks">
+<h3>blocks</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -758,34 +715,30 @@ Per-domain reports only support numeric attributes, but run_dir has type str.
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>p01.pddl</td>
-<td>runs-00001-00100/00001</td>
-<td>runs-00001-00100/00004</td>
-</tr>
-</table>
-
-</section>
-<section id="run_dir-grid">
-<h3>grid</h3>
-
-<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
-
-<table class="tableborder" style="display:none">
-<tr>
-<th>run_<wbr>dir</th>
-<th>fw-hw1</th>
-<th>fw-nw2</th>
-</tr>
-<tr>
-<td>prob01.pddl</td>
+<td>probBLOCKS-4-0.pddl</td>
 <td>runs-00001-00100/00002</td>
+<td>runs-00001-00100/00007</td>
+</tr>
+<tr>
+<td>probBLOCKS-4-1.pddl</td>
+<td>runs-00001-00100/00003</td>
+<td>runs-00001-00100/00008</td>
+</tr>
+<tr>
+<td>probBLOCKS-4-2.pddl</td>
+<td>runs-00001-00100/00004</td>
+<td>runs-00001-00100/00009</td>
+</tr>
+<tr>
+<td>probBLOCKS-5-0.pddl</td>
 <td>runs-00001-00100/00005</td>
+<td>runs-00001-00100/00010</td>
 </tr>
 </table>
 
 </section>
-<section id="run_dir-gripper">
-<h3>gripper</h3>
+<section id="run_dir-logistics00">
+<h3>logistics00</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -796,8 +749,8 @@ Per-domain reports only support numeric attributes, but run_dir has type str.
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>prob01.pddl</td>
-<td>runs-00001-00100/00003</td>
+<td>probLOGISTICS-4-0.pddl</td>
+<td>runs-00001-00100/00001</td>
 <td>runs-00001-00100/00006</td>
 </tr>
 </table>
@@ -816,24 +769,19 @@ Per-domain reports only support numeric attributes, but run_dir has type str.
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td><a href="#total_time-depot" onclick="show_table(document.getElementById('total_time-depot'));">depot</a> (1)</td>
-<td class="right"><span style="color:rgb(0,178,0)">0.01</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">2.56</span></td>
+<td><a href="#total_time-blocks" onclick="show_table(document.getElementById('total_time-blocks'));">blocks</a> (4)</td>
+<td class="right"><span style="color:rgb(0,178,0)">0.00</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">0.07</span></td>
 </tr>
 <tr>
-<td><a href="#total_time-grid" onclick="show_table(document.getElementById('total_time-grid'));">grid</a> (1)</td>
-<td class="right"><span style="color:rgb(0,0,178)">0.58</span></td>
-<td class="right"><span style="color:rgb(0,178,0)">0.54</span></td>
+<td><a href="#total_time-logistics00" onclick="show_table(document.getElementById('total_time-logistics00'));">logistics00</a> (1)</td>
+<td class="right"><span style="color:rgb(0,178,0)">0.00</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">59.55</span></td>
 </tr>
 <tr>
-<td><a href="#total_time-gripper" onclick="show_table(document.getElementById('total_time-gripper'));">gripper</a> (1)</td>
-<td class="right"><span style="color:rgb(0,178,0)">0.01</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">0.15</span></td>
-</tr>
-<tr>
-<td><strong>Geometric mean (3)</strong></td>
-<td class="right"><span style="color:rgb(0,178,0)">0.04</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">0.59</span></td>
+<td><strong>Geometric mean (5)</strong></td>
+<td class="right"><span style="color:rgb(0,178,0)">0.00</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">2.01</span></td>
 </tr>
 </table>
 
@@ -841,8 +789,8 @@ Per-domain reports only support numeric attributes, but run_dir has type str.
 Only tasks where all algorithms have a value for "total_time" are considered. Each table entry gives the geometric mean of "total_time" for that domain. The bottom row reports the geometric mean across all domains.
 </p>
 
-<section id="total_time-depot">
-<h3>depot</h3>
+<section id="total_time-blocks">
+<h3>blocks</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -853,15 +801,30 @@ Only tasks where all algorithms have a value for "total_time" are considered. Ea
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>p01.pddl</td>
-<td class="right"><span style="color:rgb(0,178,0)">0.01</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">2.56</span></td>
+<td>probBLOCKS-4-0.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">0.00</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">0.03</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-4-1.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">0.00</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">0.03</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-4-2.pddl</td>
+<td class="right"><span style="color:rgb(127,127,127)">0.00</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">0.00</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-5-0.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">0.00</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">8.73</span></td>
 </tr>
 </table>
 
 </section>
-<section id="total_time-grid">
-<h3>grid</h3>
+<section id="total_time-logistics00">
+<h3>logistics00</h3>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
@@ -872,28 +835,95 @@ Only tasks where all algorithms have a value for "total_time" are considered. Ea
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>prob01.pddl</td>
-<td class="right"><span style="color:rgb(0,0,178)">0.58</span></td>
-<td class="right"><span style="color:rgb(0,178,0)">0.54</span></td>
+<td>probLOGISTICS-4-0.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">0.00</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">59.55</span></td>
 </tr>
 </table>
 
 </section>
-<section id="total_time-gripper">
-<h3>gripper</h3>
+</section>
+<section id="width_k">
+<h2>width_k</h2>
 
 <button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
 
 <table class="tableborder" style="display:none">
 <tr>
-<th>total_<wbr>time</th>
+<th>width_<wbr>k</th>
 <th>fw-hw1</th>
 <th>fw-nw2</th>
 </tr>
 <tr>
-<td>prob01.pddl</td>
-<td class="right"><span style="color:rgb(0,178,0)">0.01</span></td>
-<td class="right"><span style="color:rgb(0,0,178)">0.15</span></td>
+<td><a href="#width_k-blocks" onclick="show_table(document.getElementById('width_k-blocks'));">blocks</a> (4)</td>
+<td class="right"><span style="color:rgb(0,0,178)">21</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">12</span></td>
+</tr>
+<tr>
+<td><a href="#width_k-logistics00" onclick="show_table(document.getElementById('width_k-logistics00'));">logistics00</a> (1)</td>
+<td class="right"><span style="color:rgb(0,178,0)">2</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">5</span></td>
+</tr>
+<tr>
+<td><strong>Sum (5)</strong></td>
+<td class="right"><span style="color:rgb(0,0,178)">23</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">17</span></td>
+</tr>
+</table>
+
+<p>
+Only tasks where all algorithms have a value for "width_k" are considered. Each table entry gives the sum of "width_k" for that domain. The bottom row reports the sum across all domains.
+</p>
+
+<section id="width_k-blocks">
+<h3>blocks</h3>
+
+<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
+
+<table class="tableborder" style="display:none">
+<tr>
+<th>width_<wbr>k</th>
+<th>fw-hw1</th>
+<th>fw-nw2</th>
+</tr>
+<tr>
+<td>probBLOCKS-4-0.pddl</td>
+<td class="right"><span style="color:rgb(127,127,127)">3</span></td>
+<td class="right"><span style="color:rgb(127,127,127)">3</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-4-1.pddl</td>
+<td class="right"><span style="color:rgb(0,0,178)">6</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">3</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-4-2.pddl</td>
+<td class="right"><span style="color:rgb(0,0,178)">6</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">2</span></td>
+</tr>
+<tr>
+<td>probBLOCKS-5-0.pddl</td>
+<td class="right"><span style="color:rgb(0,0,178)">6</span></td>
+<td class="right"><span style="color:rgb(0,178,0)">4</span></td>
+</tr>
+</table>
+
+</section>
+<section id="width_k-logistics00">
+<h3>logistics00</h3>
+
+<button type="button" class="toggle-table" onclick="toggle_table(this)">Show table</button><p></p>
+
+<table class="tableborder" style="display:none">
+<tr>
+<th>width_<wbr>k</th>
+<th>fw-hw1</th>
+<th>fw-nw2</th>
+</tr>
+<tr>
+<td>probLOGISTICS-4-0.pddl</td>
+<td class="right"><span style="color:rgb(0,178,0)">2</span></td>
+<td class="right"><span style="color:rgb(0,0,178)">5</span></td>
 </tr>
 </table>
 

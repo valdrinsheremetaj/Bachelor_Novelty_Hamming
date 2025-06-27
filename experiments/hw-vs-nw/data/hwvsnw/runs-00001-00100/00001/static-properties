@@ -5,25 +5,24 @@
     "--search",
     "framework(open=single(eval=blind()), Widthtype=0, width_k=1)"
   ],
-  "domain": "depot",
+  "domain": "logistics00",
   "driver_options": [
-    "--validate",
     "--overall-time-limit",
     "30m",
     "--overall-memory-limit",
     "3584M",
     "--overall-time-limit",
-    "5m"
+    "10m"
   ],
   "experiment_name": "hwvsnw",
-  "global_revision": "259571980db62d09f1587cb3ebab368ab299d057",
+  "global_revision": "8cfc3cd96b43071d367ea402fd9dfee6c82d71a7",
   "id": [
     "fw-hw1",
-    "depot",
-    "p01.pddl"
+    "logistics00",
+    "probLOGISTICS-4-0.pddl"
   ],
-  "local_revision": "code",
-  "problem": "p01.pddl",
+  "local_revision": "hw-vs-nw",
+  "problem": "probLOGISTICS-4-0.pddl",
   "repo": "/home/valdrin/downward/downward",
   "run_dir": "runs-00001-00100/00001"
 }
