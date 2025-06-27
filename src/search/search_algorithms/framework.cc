@@ -56,7 +56,6 @@ void Framework::initialize() {
     open_list->insert(eval_context, initial_state.get_id());
 
     print_initial_evaluator_values(eval_context);
-    log << "HELLOO: " << endl;
 }
     
 
@@ -79,6 +78,12 @@ SearchStatus Framework::step() {
     // current = pop first element from open
     StateID sid = open_list->remove_min();
     State current = state_registry.lookup_state(sid);
+    log << "Expanding state: ";
+    for (size_t i = 0; i < current.size(); ++i) {
+        log << current[i].get_value();
+    }
+    log << endl;
+
     statistics.inc_expanded(); 
 
 
@@ -146,97 +151,81 @@ int Framework::hamming_distance(const State &a, const State &b) const {
 }
 
 bool Framework::progressCheck(const State &candidate, const State &reference) {
-    if (width_type == Widthtype::Hamming) {
-        // return progressCheckHamming(candidate, reference);
-        int wrong_candidate = 0;
-        int wrong_reference = 0;
-
-    for (const FactProxy &goal_fact : task_proxy.get_goals()) {
-        int var_id = goal_fact.get_variable().get_id();
-        int goal_val = goal_fact.get_value();
-
-        if (candidate[var_id].get_value() != goal_val) {
-            ++wrong_candidate;
-        }
-        if (reference[var_id].get_value() != goal_val) {
-            ++wrong_reference;
-        }
-    }
-
-    return wrong_candidate < wrong_reference;
-    }
-    else if (width_type == Widthtype::Novelty) {
-        // return progressCheckNovelty(candidate, reference);
-        return false;
-    }
-    else if (width_type == Widthtype::Hybrid) {
-        // Same as Hamming, but used in hybrid
-        // return progressCheckHamming(candidate, reference) AND/OR progressCheckNovelty(candidate, reference);
-        int wrong_candidate = 0, wrong_reference = 0;
-        for (const FactProxy &goal_fact : task_proxy.get_goals()) {
-            int var_id = goal_fact.get_variable().get_id();
-            int goal_val = goal_fact.get_value();
-            if (candidate[var_id].get_value() != goal_val) ++wrong_candidate;
-            if (reference[var_id].get_value() != goal_val) ++wrong_reference;
-        }
-        return wrong_candidate < wrong_reference;
-    }
+    if (width_type == Widthtype::Hamming)
+        return hamming_progress_check(candidate, reference);
+    else if (width_type == Widthtype::Novelty)
+        return novelty_progress_check(candidate, reference);
+    else if (width_type == Widthtype::Hybrid)
+        return hamming_progress_check(candidate, reference) && novelty_progress_check(candidate, reference);
 }
+
 void Framework::updateClosed(const State &candidate, Closed &closed, int k) {
-    if (width_type == Widthtype::Hamming) {
-        closed.mark_closed(candidate);
-    } else if (width_type == Widthtype::Novelty) {
-        for (const PartialState &ps : generate_partial_states(candidate, k)) {
-            if (ps.size() == k) {
-                closed.mark_closed(ps);
-            }
-        }
-    } else if (width_type == Widthtype::Hybrid) {
-        closed.mark_closed(candidate);
-        for (const PartialState &ps : generate_partial_states(candidate, k)) {
-            if (ps.size() == k) {
-                closed.mark_closed(ps);
-            }
-        }
+    if (width_type == Widthtype::Hamming)
+        hamming_update_closed(candidate, closed, k);
+    else if (width_type == Widthtype::Novelty)
+        novelty_update_closed(candidate, closed, k);
+    else if (width_type == Widthtype::Hybrid) {
+        hamming_update_closed(candidate, closed, k);
+        novelty_update_closed(candidate, closed, k);
     }
 }
-
-
 
 
 
 // if we expand a state, depends of if the state is already closed -> not needed and if candidates hamming distane is <= k, with respect to reference
 bool Framework::expand_check(const State &candidate, Closed &closed, int k, const State &reference) {
-    if (width_type == Widthtype::Hamming) {
-        if (closed.is_closed(candidate))
-            return false;
-        return hamming_distance(candidate, reference) <= k;
-    } else if (width_type == Widthtype::Novelty) {
-        bool found_novel = false;
-        for (const PartialState &ps : generate_partial_states(candidate, k)) {
-            if (ps.size() <= k && !closed.is_closed(ps)) {
-                found_novel = true;
-                closed.mark_closed(ps);
-            }
+    if (width_type == Widthtype::Hamming)
+        return hamming_expand_check(candidate, closed, k, reference);
+    else if (width_type == Widthtype::Novelty)
+        return novelty_expand_check(candidate, closed, k);
+    else if (width_type == Widthtype::Hybrid)
+        return hamming_expand_check(candidate, closed, k, reference) && novelty_expand_check(candidate, closed, k);
+}
+
+bool Framework::hamming_progress_check(const State &candidate, const State &reference) const {
+    int wrong_candidate = 0, wrong_reference = 0;
+    for (const FactProxy &goal_fact : task_proxy.get_goals()) {
+        int var_id = goal_fact.get_variable().get_id();
+        int goal_val = goal_fact.get_value();
+        if (candidate[var_id].get_value() != goal_val) ++wrong_candidate;
+        if (reference[var_id].get_value() != goal_val) ++wrong_reference;
+    }
+    return wrong_candidate < wrong_reference;
+}
+
+bool Framework::novelty_progress_check(const State &candidate, const State & reference) const {
+    return false;
+}
+
+bool Framework::hamming_expand_check(const State &candidate, Closed &closed, int k, const State &reference) const {
+    if (closed.is_closed(candidate))
+        return false;
+    return hamming_distance(candidate, reference) <= k;
+}
+
+bool Framework::novelty_expand_check(const State &candidate, Closed &closed, int k) const {
+    bool found_novel = false;
+    for (const PartialState &ps : generate_partial_states(candidate, k)) {
+        if (ps.size() <= k && !closed.is_closed(ps)) {
+            found_novel = true;
+            closed.mark_closed(ps);
         }
-        return found_novel;
-        
-    } else if (width_type == Widthtype::Hybrid) {
-        // Both Hamming and Novelty must hold
-        if (closed.is_closed(candidate))
-            return false;
-        if (hamming_distance(candidate, reference) > k)
-            return false;
-        bool found_novel = false;
-        for (const PartialState &ps : generate_partial_states(candidate, k)) {
-            if (ps.size() <= k && !closed.is_closed(ps)) {
-                found_novel = true;
-                closed.mark_closed(ps);
-            }
+    }
+    return found_novel;
+}
+
+void Framework::hamming_update_closed(const State &candidate, Closed &closed, int /*k*/) const {
+    closed.mark_closed(candidate);
+}
+
+void Framework::novelty_update_closed(const State &candidate, Closed &closed, int k) const {
+    for (const PartialState &ps : generate_partial_states(candidate, k)) {
+        if (ps.size() == k) {
+            closed.mark_closed(ps);
         }
-        return found_novel;
     }
 }
+
 
 
 

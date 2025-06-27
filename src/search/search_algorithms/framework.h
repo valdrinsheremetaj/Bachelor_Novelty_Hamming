@@ -31,6 +31,15 @@ class Framework : public SearchAlgorithm {
 protected:
     virtual void initialize() override;
     virtual SearchStatus step() override;
+    bool hamming_progress_check(const State &candidate, const State &reference) const;
+    bool novelty_progress_check(const State &candidate, const State &reference) const;
+    
+    bool hamming_expand_check(const State &candidate, Closed &closed, int k, const State &reference) const;
+    bool novelty_expand_check(const State &candidate, Closed &closed, int k) const;
+    
+    void hamming_update_closed(const State &candidate, Closed &closed, int k) const;
+    void novelty_update_closed(const State &candidate, Closed &closed, int k) const;
+
     bool progressCheck(const State &candidate, const State &reference);
     bool expand_check(const State &candidate, Closed &closed, int k, const State &reference);
     void updateClosed(const State &candidate, Closed &closed, int k);
