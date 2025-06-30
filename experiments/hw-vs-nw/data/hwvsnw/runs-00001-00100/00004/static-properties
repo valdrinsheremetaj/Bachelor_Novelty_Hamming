@@ -12,10 +12,10 @@
     "--overall-memory-limit",
     "3584M",
     "--overall-time-limit",
-    "1m"
+    "10m"
   ],
   "experiment_name": "hwvsnw",
-  "global_revision": "f1fe84fbb6ea45aba7ff1dfbb1d43a6b08ee9367",
+  "global_revision": "253689b4e44a61502fa9b82d40c09eae7f0090b8",
   "id": [
     "fw-or1",
     "blocks",

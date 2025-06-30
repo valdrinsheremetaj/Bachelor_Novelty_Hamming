@@ -49,8 +49,7 @@ void Framework::initialize() {
 
     reference = state_registry.get_initial_state();
     State initial_state = *reference;
-    closed = std::make_unique<Closed>(width_type);
-
+    closed = std::make_unique<Closed>();
     updateClosed(initial_state, *closed, width_k);
 
     EvaluationContext eval_context(initial_state, 0, true, &statistics);
@@ -142,7 +141,6 @@ SearchStatus Framework::step() {
         statistics.inc_evaluated_states();
         open_list->insert(eval_context, candidate.get_id());
     }
-
     return IN_PROGRESS;
 }
 

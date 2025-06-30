@@ -13,7 +13,7 @@ REMOTE_REPOS_DIR = "/infai/username/projects"
 REVISION_CACHE = os.environ.get("DOWNWARD_REVISION_CACHE")
 print(f"Using revision cache: {REVISION_CACHE}")
 if project.REMOTE:
-    SUITE = project.SUITE_SATISFICING
+    SUITE = project.SUITE_OPTIMAL_STRIPS
     ENV = project.BaselSlurmEnvironment(email="my.name@myhost.ch")
 else:
     #SUITE = [f"gripper:prob{str(i).zfill(2)}.pddl" for i in range(1, 21)]
@@ -34,15 +34,13 @@ CONFIGS = [
     ("fw-nw1", ["--search", 'framework(open=single(eval=blind()), Widthtype=1, width_k=1)']),
     ("fw-hybrid1", ["--search", 'framework(open=single(eval=blind()), Widthtype=2, width_k=1)']),
     ("fw-or1", ["--search", 'framework(open=single(eval=blind()), Widthtype=3, width_k=1)']),
-    ("fw-newclose1", ["--search", 'framework(open=single(eval=blind()), Widthtype=4, width_k=1)']),
-    ("fw-closenew1", ["--search", 'framework(open=single(eval=blind()), Widthtype=5, width_k=1)']),
 ]
 
 
 
 
 BUILD_OPTIONS = []
-DRIVER_OPTIONS = ["--overall-time-limit", "1m"]
+DRIVER_OPTIONS = ["--overall-time-limit", "10m"]
 REV_NICKS = [
     ("hw-vs-nw", ""),
 ]

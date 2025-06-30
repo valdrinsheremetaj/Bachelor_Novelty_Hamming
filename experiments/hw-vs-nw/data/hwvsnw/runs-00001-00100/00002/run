@@ -18,7 +18,7 @@ redirects = {"stdout": run_log, "stderr": run_err}
 # Make sure we're in the run directory.
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-Call(['/home/valdrin/downward/downward/experiments/hw-vs-nw/.venv/bin/python3', '/home/valdrin/downward/downward/experiments/hw-vs-nw/data/hwvsnw/code-f1fe84fbb6ea45aba7ff1dfbb1d43a6b08ee9367_e5e41175/fast-downward.py', '--overall-time-limit', '30m', '--overall-memory-limit', '3584M', '--overall-time-limit', '1m', 'domain.pddl', 'problem.pddl', '--search', 'framework(open=single(eval=blind()), Widthtype=1, width_k=1)'], hard_stderr_limit=10240, hard_stdout_limit=10240, memory_limit=None, name='planner', soft_stderr_limit=64, soft_stdout_limit=1024, time_limit=None, **redirects).wait()
+Call(['/home/valdrin/downward/downward/experiments/hw-vs-nw/.venv/bin/python3', '/home/valdrin/downward/downward/experiments/hw-vs-nw/data/hwvsnw/code-253689b4e44a61502fa9b82d40c09eae7f0090b8_e5e41175/fast-downward.py', '--overall-time-limit', '30m', '--overall-memory-limit', '3584M', '--overall-time-limit', '10m', 'domain.pddl', 'problem.pddl', '--search', 'framework(open=single(eval=blind()), Widthtype=1, width_k=1)'], hard_stderr_limit=10240, hard_stdout_limit=10240, memory_limit=None, name='planner', soft_stderr_limit=64, soft_stdout_limit=1024, time_limit=None, **redirects).wait()
 
 
 for f in [run_log, run_err]:

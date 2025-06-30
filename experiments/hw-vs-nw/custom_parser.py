@@ -26,37 +26,31 @@ def get_parser():
     parser.add_pattern(
         "expansions",
         r"Expanded (\d+) state\(s\)\.",
-        file="run.log",
         type=int,
     )
     parser.add_pattern(
         "evaluations",
         r"Evaluations: (\d+)",
-        file="run.log",
         type=int,
     )
     parser.add_pattern(
         "total_time",
         r"Total time: ([0-9.]+)s",
-        file="run.log",
         type=float,
     )
     parser.add_pattern(
         "plan_cost",
         r"Plan cost: (\d+)",
-        file="run.log",
         type=int,
     )
     parser.add_pattern(
         "search_time",
         r"Search time: ([0-9.]+)s",
-        file="run.log",
         type=float,
     )
     parser.add_pattern(
         "width_k",
         r"Found a solution with width_k = (\d+)",
-        file="run.log",
         type=int,
     )
     return parser
