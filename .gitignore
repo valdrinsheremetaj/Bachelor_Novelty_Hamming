@@ -6,4 +6,4 @@ __pycache__/
 /misc/.tox/
 /misc/autodoc/downward-xmlrpc.secret
 *.tgz
-experiments/
+experiments/hw-vs-nw
