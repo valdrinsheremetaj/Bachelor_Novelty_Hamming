@@ -102,14 +102,7 @@ SearchStatus Framework::step() {
         // creation of candidate
         State candidate = state_registry.get_successor_state(current, op);
         statistics.inc_generated();
-        log << "[GEN] ";
-        for (size_t i = 0; i < candidate.size(); ++i)
-            log << candidate[i].get_value();
-        log << " (parent: ";
-        for (size_t i = 0; i < current.size(); ++i)
-            log << current[i].get_value();
-        log << ")" << endl;
-        
+
         SearchNode candidate_node = search_space.get_node(candidate);
         if (candidate_node.is_new()) {
             candidate_node.open_new_node(search_space.get_node(current), op, op.get_cost());

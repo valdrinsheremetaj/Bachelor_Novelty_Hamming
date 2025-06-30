@@ -8,7 +8,6 @@ ATTRIBUTES = [
     "error",
     "run_dir",
     "planner_time",
-    "initial_h_value",
     "coverage",
     "cost",
     "evaluations",

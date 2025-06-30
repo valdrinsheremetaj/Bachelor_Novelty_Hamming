@@ -18,12 +18,12 @@ if project.REMOTE:
 else:
     #SUITE = [f"gripper:prob{str(i).zfill(2)}.pddl" for i in range(1, 21)]
     SUITE = [
-    "logistics00:probLOGISTICS-4-0.pddl",
+    #"logistics00:probLOGISTICS-4-0.pddl",
     #"logistics00:probLOGISTICS-15-1.pddl",
     "blocks:probBLOCKS-4-0.pddl",
-    "blocks:probBLOCKS-4-1.pddl",
-    "blocks:probBLOCKS-4-2.pddl",
-    "blocks:probBLOCKS-5-0.pddl",
+    #"blocks:probBLOCKS-4-1.pddl",
+    #"blocks:probBLOCKS-4-2.pddl",
+    #"blocks:probBLOCKS-5-0.pddl",
     ]
 
     ENV = project.LocalEnvironment(processes=2)
@@ -42,7 +42,7 @@ CONFIGS = [
 
 
 BUILD_OPTIONS = []
-DRIVER_OPTIONS = ["--overall-time-limit", "10m"]
+DRIVER_OPTIONS = ["--overall-time-limit", "1m"]
 REV_NICKS = [
     ("hw-vs-nw", ""),
 ]

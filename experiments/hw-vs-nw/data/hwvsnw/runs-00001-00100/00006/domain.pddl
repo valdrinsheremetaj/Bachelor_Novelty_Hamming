@@ -1,1 +1,1 @@
-../../../../../../downward-benchmarks/gripper/domain.pddl
+../../../../../../downward-benchmarks/blocks/domain.pddl

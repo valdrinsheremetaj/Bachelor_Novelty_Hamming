@@ -1,39 +1,39 @@
-INFO     planner time limit: 300s
+INFO     planner time limit: 60s
 INFO     planner memory limit: 3584 MB
 
 INFO     Running translator.
 INFO     translator stdin: None
-INFO     translator time limit: 299s
+INFO     translator time limit: 59s
 INFO     translator memory limit: 3584 MB
-INFO     translator command line string: /home/valdrin/downward/downward/experiments/hw-vs-nw/.venv/bin/python3 /home/valdrin/downward/downward/experiments/hw-vs-nw/data/hwvsnw/code-259571980db62d09f1587cb3ebab368ab299d057_e5e41175/builds/release/bin/translate/translate.py domain.pddl problem.pddl --sas-file output.sas
+INFO     translator command line string: /home/valdrin/downward/downward/experiments/hw-vs-nw/.venv/bin/python3 /home/valdrin/downward/downward/experiments/hw-vs-nw/data/hwvsnw/code-f1fe84fbb6ea45aba7ff1dfbb1d43a6b08ee9367_e5e41175/builds/release/bin/translate/translate.py domain.pddl problem.pddl --sas-file output.sas
 Parsing...
-Parsing: [0.000s CPU, 0.003s wall-clock]
+Parsing: [0.000s CPU, 0.001s wall-clock]
 Normalizing task... [0.000s CPU, 0.000s wall-clock]
 Instantiating...
 Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
 Normalizing Datalog program...
-Normalizing Datalog program: [0.000s CPU, 0.003s wall-clock]
-Preparing model... [0.000s CPU, 0.001s wall-clock]
-Generated 46 rules.
-Computing model... [0.030s CPU, 0.022s wall-clock]
-3114 relevant atoms
-1522 auxiliary atoms
-4636 final queue length
-9238 total queue pushes
-Completing instantiation... [0.060s CPU, 0.070s wall-clock]
-Instantiating: [0.100s CPU, 0.097s wall-clock]
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.000s CPU, 0.000s wall-clock]
+Generated 21 rules.
+Computing model... [0.000s CPU, 0.000s wall-clock]
+78 relevant atoms
+52 auxiliary atoms
+130 final queue length
+206 total queue pushes
+Completing instantiation... [0.000s CPU, 0.002s wall-clock]
+Instantiating: [0.000s CPU, 0.003s wall-clock]
 Computing fact groups...
 Finding invariants...
-12 initial candidates
-Finding invariants: [0.000s CPU, 0.001s wall-clock]
-Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+10 initial candidates
+Finding invariants: [0.000s CPU, 0.003s wall-clock]
+Checking invariant weight... [0.010s CPU, 0.000s wall-clock]
 Instantiating groups... [0.000s CPU, 0.000s wall-clock]
 Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
 Choosing groups...
-18 uncovered facts
-Choosing groups: [0.010s CPU, 0.008s wall-clock]
+5 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
 Building translation key... [0.000s CPU, 0.000s wall-clock]
-Computing fact groups: [0.010s CPU, 0.011s wall-clock]
+Computing fact groups: [0.010s CPU, 0.003s wall-clock]
 Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
 Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
 Building mutex information...
@@ -42,81 +42,553 @@ Translating task...
 Processing axioms...
 Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
 Translator axioms removed by simplifying: 0
-Processing axioms: [0.000s CPU, 0.002s wall-clock]
-Translating task: [0.070s CPU, 0.075s wall-clock]
-225 effect conditions simplified
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.000s CPU, 0.001s wall-clock]
+44 effect conditions simplified
 0 implied preconditions added
 Detecting unreachable propositions...
 0 operators removed
 0 axioms removed
-52 propositions removed
-Detecting unreachable propositions: [0.030s CPU, 0.036s wall-clock]
+8 propositions removed
+Detecting unreachable propositions: [0.000s CPU, 0.001s wall-clock]
 Reordering and filtering variables...
-19 of 19 variables necessary.
-1 of 19 mutex groups necessary.
-2384 of 2384 operators necessary.
+9 of 9 variables necessary.
+5 of 9 mutex groups necessary.
+32 of 32 operators necessary.
 0 of 0 axiom rules necessary.
-Reordering and filtering variables: [0.010s CPU, 0.007s wall-clock]
-Translator variables: 19
+Reordering and filtering variables: [0.000s CPU, 0.001s wall-clock]
+Translator variables: 9
 Translator derived variables: 0
-Translator facts: 277
-Translator goal facts: 1
-Translator mutex groups: 1
-Translator total mutex groups size: 10
-Translator operators: 2384
+Translator facts: 30
+Translator goal facts: 3
+Translator mutex groups: 5
+Translator total mutex groups size: 25
+Translator operators: 32
 Translator axioms: 0
-Translator task size: 14119
-Translator peak memory: 44356 KB
-Writing output... [0.030s CPU, 0.022s wall-clock]
-Done! [0.250s CPU, 0.255s wall-clock]
+Translator task size: 295
+Translator peak memory: 33264 KB
+Writing output... [0.000s CPU, 0.000s wall-clock]
+Done! [0.010s CPU, 0.011s wall-clock]
 translate exit code: 0
 
 INFO     Running search (release).
 INFO     search stdin: output.sas
-INFO     search time limit: 299s
+INFO     search time limit: 59s
 INFO     search memory limit: 3584 MB
-INFO     search command line string: /home/valdrin/downward/downward/experiments/hw-vs-nw/data/hwvsnw/code-259571980db62d09f1587cb3ebab368ab299d057_e5e41175/builds/release/bin/downward --search 'framework(open=single(eval=blind()), Widthtype=0, width_k=1)' --internal-plan-file sas_plan < output.sas
-[t=0.000995s, 9808 KB] reading input...
-[t=0.008748s, 10420 KB] done reading input!
-[t=0.009773s, 10816 KB] Initializing blind search heuristic...
-[t=0.009773s, 10816 KB] Building successor generator...done!
-[t=0.010855s, 10980 KB] peak memory difference for successor generator creation: 164 KB
-[t=0.010855s, 10980 KB] time for successor generation creation: 0.001082s
-[t=0.010855s, 10980 KB] Variables: 19
-[t=0.010855s, 10980 KB] FactPairs: 277
-[t=0.010855s, 10980 KB] Bytes per state: 8
-[t=0.010855s, 10980 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
-[t=0.010855s, 10980 KB] Initial heuristic value for blind: 1
-[t=0.010855s, 10980 KB] Couldn't find a solution with width_k = 1
-[t=0.010855s, 10980 KB] Restarting search with increased width_k = 2
-[t=0.010855s, 10980 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
-[t=0.010855s, 10980 KB] Initial heuristic value for blind: 1
-[t=0.010855s, 10980 KB] Couldn't find a solution with width_k = 2
-[t=0.010855s, 10980 KB] Restarting search with increased width_k = 3
-[t=0.011870s, 10980 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
-[t=0.012138s, 10980 KB] Initial heuristic value for blind: 1
-[t=0.018154s, 11212 KB] Couldn't find a solution with width_k = 3
-[t=0.018804s, 11212 KB] Restarting search with increased width_k = 4
-[t=0.018819s, 11212 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
-[t=0.018829s, 11212 KB] Initial heuristic value for blind: 1
-[t=0.584845s, 14648 KB] Solution found!
-[t=0.584845s, 14648 KB] Found a solution with width_k = 4
-[t=0.584845s, 14648 KB] Actual search time: 0.573990s
-[t=0.584845s, 14648 KB] Plan length: 0 step(s).
-[t=0.584845s, 14648 KB] Plan cost: 0
-[t=0.584845s, 14648 KB] Expanded 15092 state(s).
-[t=0.584845s, 14648 KB] Reopened 0 state(s).
-[t=0.584845s, 14648 KB] Evaluated 18561 state(s).
-[t=0.584845s, 14648 KB] Evaluations: 17371
-[t=0.584845s, 14648 KB] Generated 48447 state(s).
-[t=0.584845s, 14648 KB] Dead ends: 0 state(s).
-[t=0.584845s, 14648 KB] Number of registered states: 18960
-[t=0.584845s, 14648 KB] Int hash set load factor: 18960/32768 = 0.578613
-[t=0.584845s, 14648 KB] Int hash set resizes: 15
-[t=0.584845s, 14648 KB] Search time: 0.573990s
-[t=0.584845s, 14648 KB] Total time: 0.584845s
+INFO     search command line string: /home/valdrin/downward/downward/experiments/hw-vs-nw/data/hwvsnw/code-f1fe84fbb6ea45aba7ff1dfbb1d43a6b08ee9367_e5e41175/builds/release/bin/downward --search 'framework(open=single(eval=blind()), Widthtype=1, width_k=1)' --internal-plan-file sas_plan < output.sas
+[t=0.000000s, 9812 KB] reading input...
+[t=0.000820s, 9812 KB] done reading input!
+[t=0.002027s, 10068 KB] Initializing blind search heuristic...
+[t=0.002339s, 10068 KB] Building successor generator...done!
+[t=0.002750s, 10068 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.002792s, 10068 KB] time for successor generation creation: 0.000174s
+[t=0.002809s, 10068 KB] Variables: 9
+[t=0.002821s, 10068 KB] FactPairs: 30
+[t=0.002830s, 10068 KB] Bytes per state: 4
+[t=0.002846s, 10068 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=0.002866s, 10068 KB] Initial heuristic value for blind: 1
+[t=0.002885s, 10068 KB] [GEN] 010001444 (parent: 400000444)
+[t=0.002896s, 10068 KB] [GEN] 401001044 (parent: 400000444)
+[t=0.002910s, 10068 KB] [GEN] 400101404 (parent: 400000444)
+[t=0.002931s, 10068 KB] [GEN] 400011440 (parent: 400000444)
+[t=0.002951s, 10068 KB] [GEN] 400000444 (parent: 010001444)
+[t=0.002964s, 10068 KB] [GEN] 101000444 (parent: 010001444)
+[t=0.002974s, 10068 KB] [GEN] 200100444 (parent: 010001444)
+[t=0.002990s, 10068 KB] [GEN] 300010444 (parent: 010001444)
+[t=0.003017s, 10068 KB] [GEN] 410000144 (parent: 401001044)
+[t=0.003049s, 10068 KB] [GEN] 400100244 (parent: 401001044)
+[t=0.003074s, 10068 KB] [GEN] 400010344 (parent: 401001044)
+[t=0.003177s, 10068 KB] [GEN] 400000444 (parent: 401001044)
+[t=0.003471s, 10068 KB] [GEN] 410000414 (parent: 400101404)
+[t=0.003471s, 10068 KB] [GEN] 401000424 (parent: 400101404)
+[t=0.003471s, 10068 KB] [GEN] 400010434 (parent: 400101404)
+[t=0.003471s, 10068 KB] [GEN] 400000444 (parent: 400101404)
+[t=0.003471s, 10068 KB] [GEN] 410000441 (parent: 400011440)
+[t=0.003471s, 10068 KB] [GEN] 401000442 (parent: 400011440)
+[t=0.003471s, 10068 KB] [GEN] 400100443 (parent: 400011440)
+[t=0.003471s, 10068 KB] [GEN] 400000444 (parent: 400011440)
+[t=0.003471s, 10068 KB] [GEN] 010001444 (parent: 101000444)
+[t=0.003471s, 10068 KB] [GEN] 101101404 (parent: 101000444)
+[t=0.003471s, 10068 KB] [GEN] 101011440 (parent: 101000444)
+[t=0.003471s, 10068 KB] [GEN] 010001444 (parent: 200100444)
+[t=0.003471s, 10068 KB] [GEN] 201101044 (parent: 200100444)
+[t=0.003471s, 10068 KB] [GEN] 200111440 (parent: 200100444)
+[t=0.003471s, 10068 KB] [GEN] 010001444 (parent: 300010444)
+[t=0.003471s, 10068 KB] [GEN] 301011044 (parent: 300010444)
+[t=0.003471s, 10068 KB] [GEN] 300111404 (parent: 300010444)
+[t=0.003471s, 10068 KB] [GEN] 401001044 (parent: 410000144)
+[t=0.003471s, 10068 KB] [GEN] 410101104 (parent: 410000144)
+[t=0.003471s, 10068 KB] [GEN] 410011140 (parent: 410000144)
+[t=0.003471s, 10068 KB] [GEN] 010101244 (parent: 400100244)
+[t=0.003471s, 10068 KB] [GEN] 401001044 (parent: 400100244)
+[t=0.003471s, 10068 KB] [GEN] 400111240 (parent: 400100244)
+[t=0.003471s, 10068 KB] [GEN] 010011344 (parent: 400010344)
+[t=0.003471s, 10068 KB] [GEN] 401001044 (parent: 400010344)
+[t=0.003471s, 10068 KB] [GEN] 400111304 (parent: 400010344)
+[t=0.003471s, 10068 KB] [GEN] 411001014 (parent: 410000414)
+[t=0.003471s, 10068 KB] [GEN] 400101404 (parent: 410000414)
+[t=0.003471s, 10068 KB] [GEN] 410011410 (parent: 410000414)
+[t=0.003471s, 10068 KB] [GEN] 011001424 (parent: 401000424)
+[t=0.003471s, 10068 KB] [GEN] 400101404 (parent: 401000424)
+[t=0.003471s, 10068 KB] [GEN] 401011420 (parent: 401000424)
+[t=0.003471s, 10068 KB] [GEN] 010011434 (parent: 400010434)
+[t=0.003471s, 10068 KB] [GEN] 401011034 (parent: 400010434)
+[t=0.003471s, 10068 KB] [GEN] 400101404 (parent: 400010434)
+[t=0.003471s, 10068 KB] [GEN] 411001041 (parent: 410000441)
+[t=0.003471s, 10068 KB] [GEN] 410101401 (parent: 410000441)
+[t=0.003471s, 10068 KB] [GEN] 400011440 (parent: 410000441)
+[t=0.003471s, 10068 KB] [GEN] 011001442 (parent: 401000442)
+[t=0.003471s, 10068 KB] [GEN] 401101402 (parent: 401000442)
+[t=0.003471s, 10068 KB] [GEN] 400011440 (parent: 401000442)
+[t=0.003471s, 10068 KB] [GEN] 010101443 (parent: 400100443)
+[t=0.003471s, 10068 KB] [GEN] 401101043 (parent: 400100443)
+[t=0.003471s, 10068 KB] [GEN] 400011440 (parent: 400100443)
+[t=0.003471s, 10068 KB] Couldn't find a solution with width_k = 1
+[t=0.003471s, 10068 KB] Restarting search with increased width_k = 2
+[t=0.003471s, 10068 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=0.003471s, 10068 KB] Initial heuristic value for blind: 1
+[t=0.003471s, 10068 KB] [GEN] 010001444 (parent: 400000444)
+[t=0.003471s, 10068 KB] [GEN] 401001044 (parent: 400000444)
+[t=0.003471s, 10068 KB] [GEN] 400101404 (parent: 400000444)
+[t=0.003471s, 10068 KB] [GEN] 400011440 (parent: 400000444)
+[t=0.003471s, 10068 KB] [GEN] 400000444 (parent: 010001444)
+[t=0.003471s, 10068 KB] [GEN] 101000444 (parent: 010001444)
+[t=0.003471s, 10068 KB] [GEN] 200100444 (parent: 010001444)
+[t=0.003471s, 10068 KB] [GEN] 300010444 (parent: 010001444)
+[t=0.003471s, 10068 KB] [GEN] 410000144 (parent: 401001044)
+[t=0.004628s, 10068 KB] [GEN] 400100244 (parent: 401001044)
+[t=0.005096s, 10068 KB] [GEN] 400010344 (parent: 401001044)
+[t=0.005332s, 10068 KB] [GEN] 400000444 (parent: 401001044)
+[t=0.005429s, 10068 KB] [GEN] 410000414 (parent: 400101404)
+[t=0.005481s, 10068 KB] [GEN] 401000424 (parent: 400101404)
+[t=0.005566s, 10068 KB] [GEN] 400010434 (parent: 400101404)
+[t=0.005638s, 10068 KB] [GEN] 400000444 (parent: 400101404)
+[t=0.005714s, 10068 KB] [GEN] 410000441 (parent: 400011440)
+[t=0.005840s, 10068 KB] [GEN] 401000442 (parent: 400011440)
+[t=0.005931s, 10068 KB] [GEN] 400100443 (parent: 400011440)
+[t=0.005975s, 10068 KB] [GEN] 400000444 (parent: 400011440)
+[t=0.006007s, 10068 KB] [GEN] 010001444 (parent: 101000444)
+[t=0.006021s, 10068 KB] [GEN] 101101404 (parent: 101000444)
+[t=0.006034s, 10068 KB] [GEN] 101011440 (parent: 101000444)
+[t=0.006061s, 10068 KB] [GEN] 010001444 (parent: 200100444)
+[t=0.006100s, 10068 KB] [GEN] 201101044 (parent: 200100444)
+[t=0.006120s, 10068 KB] [GEN] 200111440 (parent: 200100444)
+[t=0.006155s, 10068 KB] [GEN] 010001444 (parent: 300010444)
+[t=0.006189s, 10068 KB] [GEN] 301011044 (parent: 300010444)
+[t=0.006202s, 10068 KB] [GEN] 300111404 (parent: 300010444)
+[t=0.006226s, 10068 KB] [GEN] 401001044 (parent: 410000144)
+[t=0.006250s, 10068 KB] [GEN] 410101104 (parent: 410000144)
+[t=0.006263s, 10068 KB] [GEN] 410011140 (parent: 410000144)
+[t=0.006304s, 10068 KB] [GEN] 010101244 (parent: 400100244)
+[t=0.006338s, 10068 KB] [GEN] 401001044 (parent: 400100244)
+[t=0.006368s, 10068 KB] [GEN] 400111240 (parent: 400100244)
+[t=0.006389s, 10068 KB] [GEN] 010011344 (parent: 400010344)
+[t=0.006425s, 10068 KB] [GEN] 401001044 (parent: 400010344)
+[t=0.006463s, 10068 KB] [GEN] 400111304 (parent: 400010344)
+[t=0.006484s, 10068 KB] [GEN] 411001014 (parent: 410000414)
+[t=0.006516s, 10068 KB] [GEN] 400101404 (parent: 410000414)
+[t=0.006567s, 10068 KB] [GEN] 410011410 (parent: 410000414)
+[t=0.006597s, 10068 KB] [GEN] 011001424 (parent: 401000424)
+[t=0.006630s, 10068 KB] [GEN] 400101404 (parent: 401000424)
+[t=0.006661s, 10068 KB] [GEN] 401011420 (parent: 401000424)
+[t=0.006681s, 10068 KB] [GEN] 010011434 (parent: 400010434)
+[t=0.006719s, 10068 KB] [GEN] 401011034 (parent: 400010434)
+[t=0.006751s, 10068 KB] [GEN] 400101404 (parent: 400010434)
+[t=0.006788s, 10068 KB] [GEN] 411001041 (parent: 410000441)
+[t=0.006813s, 10068 KB] [GEN] 410101401 (parent: 410000441)
+[t=0.006846s, 10068 KB] [GEN] 400011440 (parent: 410000441)
+[t=0.006871s, 10068 KB] [GEN] 011001442 (parent: 401000442)
+[t=0.006887s, 10068 KB] [GEN] 401101402 (parent: 401000442)
+[t=0.006919s, 10068 KB] [GEN] 400011440 (parent: 401000442)
+[t=0.006947s, 10068 KB] [GEN] 010101443 (parent: 400100443)
+[t=0.006969s, 10068 KB] [GEN] 401101043 (parent: 400100443)
+[t=0.006995s, 10068 KB] [GEN] 400011440 (parent: 400100443)
+[t=0.007026s, 10068 KB] [GEN] 111000414 (parent: 101101404)
+[t=0.007041s, 10068 KB] [GEN] 101010434 (parent: 101101404)
+[t=0.007071s, 10068 KB] [GEN] 101000444 (parent: 101101404)
+[t=0.007105s, 10068 KB] [GEN] 111000441 (parent: 101011440)
+[t=0.007129s, 10068 KB] [GEN] 101100443 (parent: 101011440)
+[t=0.007350s, 10068 KB] [GEN] 101000444 (parent: 101011440)
+[t=0.007381s, 10068 KB] [GEN] 210100144 (parent: 201101044)
+[t=0.007405s, 10068 KB] [GEN] 200110344 (parent: 201101044)
+[t=0.007439s, 10068 KB] [GEN] 200100444 (parent: 201101044)
+[t=0.007476s, 10068 KB] [GEN] 210100441 (parent: 200111440)
+[t=0.007496s, 10068 KB] [GEN] 201100442 (parent: 200111440)
+[t=0.007530s, 10068 KB] [GEN] 200100444 (parent: 200111440)
+[t=0.007554s, 10068 KB] [GEN] 310010144 (parent: 301011044)
+[t=0.007576s, 10068 KB] [GEN] 300110244 (parent: 301011044)
+[t=0.007610s, 10068 KB] [GEN] 300010444 (parent: 301011044)
+[t=0.007636s, 10068 KB] [GEN] 310010414 (parent: 300111404)
+[t=0.007665s, 10068 KB] [GEN] 301010424 (parent: 300111404)
+[t=0.007693s, 10068 KB] [GEN] 300010444 (parent: 300111404)
+[t=0.007727s, 10068 KB] [GEN] 411000124 (parent: 410101104)
+[t=0.007742s, 10068 KB] [GEN] 410010134 (parent: 410101104)
+[t=0.007770s, 10068 KB] [GEN] 410000144 (parent: 410101104)
+[t=0.007804s, 10068 KB] [GEN] 411000142 (parent: 410011140)
+[t=0.007835s, 10068 KB] [GEN] 410100143 (parent: 410011140)
+[t=0.007835s, 10068 KB] [GEN] 410000144 (parent: 410011140)
+[t=0.007835s, 10068 KB] [GEN] 400100244 (parent: 010101244)
+[t=0.007835s, 10068 KB] [GEN] 101100244 (parent: 010101244)
+[t=0.007835s, 10068 KB] [GEN] 300110244 (parent: 010101244)
+[t=0.007835s, 10068 KB] [GEN] 410100241 (parent: 400111240)
+[t=0.007835s, 10068 KB] [GEN] 401100242 (parent: 400111240)
+[t=0.007835s, 10068 KB] [GEN] 400100244 (parent: 400111240)
+[t=0.007835s, 10068 KB] [GEN] 400010344 (parent: 010011344)
+[t=0.008175s, 10068 KB] [GEN] 101010344 (parent: 010011344)
+[t=0.008175s, 10068 KB] [GEN] 200110344 (parent: 010011344)
+[t=0.008175s, 10068 KB] [GEN] 410010314 (parent: 400111304)
+[t=0.008175s, 10068 KB] [GEN] 401010324 (parent: 400111304)
+[t=0.008175s, 10068 KB] [GEN] 400010344 (parent: 400111304)
+[t=0.008175s, 10068 KB] [GEN] 410100214 (parent: 411001014)
+[t=0.008175s, 10068 KB] [GEN] 410010314 (parent: 411001014)
+[t=0.008175s, 10068 KB] [GEN] 410000414 (parent: 411001014)
+[t=0.008175s, 10068 KB] [GEN] 411000412 (parent: 410011410)
+[t=0.008175s, 10068 KB] [GEN] 410100413 (parent: 410011410)
+[t=0.008175s, 10068 KB] [GEN] 410000414 (parent: 410011410)
+[t=0.008175s, 10068 KB] [GEN] 401000424 (parent: 011001424)
+[t=0.008175s, 10068 KB] [GEN] 201100424 (parent: 011001424)
+[t=0.008175s, 10068 KB] [GEN] 301010424 (parent: 011001424)
+[t=0.008175s, 10068 KB] [GEN] 411000421 (parent: 401011420)
+[t=0.008175s, 10068 KB] [GEN] 401100423 (parent: 401011420)
+[t=0.008175s, 10068 KB] [GEN] 401000424 (parent: 401011420)
+[t=0.008175s, 10068 KB] [GEN] 400010434 (parent: 010011434)
+[t=0.008175s, 10068 KB] [GEN] 101010434 (parent: 010011434)
+[t=0.008175s, 10068 KB] [GEN] 200110434 (parent: 010011434)
+[t=0.008175s, 10068 KB] [GEN] 410010134 (parent: 401011034)
+[t=0.008175s, 10068 KB] [GEN] 400110234 (parent: 401011034)
+[t=0.008175s, 10068 KB] [GEN] 400010434 (parent: 401011034)
+[t=0.008175s, 10068 KB] [GEN] 410100241 (parent: 411001041)
+[t=0.008175s, 10068 KB] [GEN] 410010341 (parent: 411001041)
+[t=0.008175s, 10068 KB] [GEN] 410000441 (parent: 411001041)
+[t=0.008175s, 10068 KB] [GEN] 411000421 (parent: 410101401)
+[t=0.008175s, 10068 KB] [GEN] 410010431 (parent: 410101401)
+[t=0.008175s, 10068 KB] [GEN] 410000441 (parent: 410101401)
+[t=0.008175s, 10068 KB] [GEN] 401000442 (parent: 011001442)
+[t=0.008175s, 10068 KB] [GEN] 201100442 (parent: 011001442)
+[t=0.008175s, 10068 KB] [GEN] 301010442 (parent: 011001442)
+[t=0.008175s, 10068 KB] [GEN] 411000412 (parent: 401101402)
+[t=0.008175s, 10068 KB] [GEN] 401010432 (parent: 401101402)
+[t=0.008175s, 10068 KB] [GEN] 401000442 (parent: 401101402)
+[t=0.008175s, 10068 KB] [GEN] 400100443 (parent: 010101443)
+[t=0.008175s, 10068 KB] [GEN] 101100443 (parent: 010101443)
+[t=0.008175s, 10068 KB] [GEN] 300110443 (parent: 010101443)
+[t=0.008175s, 10068 KB] [GEN] 410100143 (parent: 401101043)
+[t=0.008175s, 10068 KB] [GEN] 400110343 (parent: 401101043)
+[t=0.009237s, 10068 KB] [GEN] 400100443 (parent: 401101043)
+[t=0.009258s, 10068 KB] [GEN] 101101404 (parent: 111000414)
+[t=0.009273s, 10068 KB] [GEN] 111011410 (parent: 111000414)
+[t=0.009288s, 10068 KB] [GEN] 010011434 (parent: 101010434)
+[t=0.009306s, 10068 KB] [GEN] 101101404 (parent: 101010434)
+[t=0.009321s, 10068 KB] [GEN] 111101401 (parent: 111000441)
+[t=0.009336s, 10068 KB] [GEN] 101011440 (parent: 111000441)
+[t=0.009355s, 10068 KB] [GEN] 010101443 (parent: 101100443)
+[t=0.009378s, 10068 KB] [GEN] 101011440 (parent: 101100443)
+[t=0.009405s, 10068 KB] [GEN] 201101044 (parent: 210100144)
+[t=0.009439s, 10068 KB] [GEN] 210111140 (parent: 210100144)
+[t=0.009457s, 10068 KB] [GEN] 010011344 (parent: 200110344)
+[t=0.009479s, 10068 KB] [GEN] 201101044 (parent: 200110344)
+[t=0.009503s, 10068 KB] [GEN] 211101041 (parent: 210100441)
+[t=0.009531s, 10068 KB] [GEN] 200111440 (parent: 210100441)
+[t=0.009558s, 10068 KB] [GEN] 011001442 (parent: 201100442)
+[t=0.009583s, 10068 KB] [GEN] 200111440 (parent: 201100442)
+[t=0.009602s, 10068 KB] [GEN] 301011044 (parent: 310010144)
+[t=0.009617s, 10068 KB] [GEN] 310111104 (parent: 310010144)
+[t=0.009639s, 10068 KB] [GEN] 010101244 (parent: 300110244)
+[t=0.009678s, 10068 KB] [GEN] 301011044 (parent: 300110244)
+[t=0.009712s, 10068 KB] [GEN] 311011014 (parent: 310010414)
+[t=0.009744s, 10068 KB] [GEN] 300111404 (parent: 310010414)
+[t=0.009764s, 10068 KB] [GEN] 011001424 (parent: 301010424)
+[t=0.009791s, 10068 KB] [GEN] 300111404 (parent: 301010424)
+[t=0.009807s, 10068 KB] [GEN] 410101104 (parent: 411000124)
+[t=0.009830s, 10068 KB] [GEN] 411011120 (parent: 411000124)
+[t=0.009846s, 10068 KB] [GEN] 401011034 (parent: 410010134)
+[t=0.009865s, 10068 KB] [GEN] 410101104 (parent: 410010134)
+[t=0.010034s, 10068 KB] [GEN] 411101102 (parent: 411000142)
+[t=0.010051s, 10068 KB] [GEN] 410011140 (parent: 411000142)
+[t=0.010076s, 10068 KB] [GEN] 401101043 (parent: 410100143)
+[t=0.010098s, 10068 KB] [GEN] 410011140 (parent: 410100143)
+[t=0.010121s, 10068 KB] [GEN] 010101244 (parent: 101100244)
+[t=0.010139s, 10068 KB] [GEN] 101111240 (parent: 101100244)
+[t=0.010164s, 10068 KB] [GEN] 411001041 (parent: 410100241)
+[t=0.010191s, 10068 KB] [GEN] 400111240 (parent: 410100241)
+[t=0.010207s, 10068 KB] [GEN] 011101242 (parent: 401100242)
+[t=0.010224s, 10068 KB] [GEN] 400111240 (parent: 401100242)
+[t=0.010242s, 10068 KB] [GEN] 010011344 (parent: 101010344)
+[t=0.010268s, 10068 KB] [GEN] 101111304 (parent: 101010344)
+[t=0.010294s, 10068 KB] [GEN] 411001014 (parent: 410010314)
+[t=0.010321s, 10068 KB] [GEN] 400111304 (parent: 410010314)
+[t=0.010337s, 10068 KB] [GEN] 011011324 (parent: 401010324)
+[t=0.010353s, 10068 KB] [GEN] 400111304 (parent: 401010324)
+[t=0.010371s, 10068 KB] [GEN] 411001014 (parent: 410100214)
+[t=0.010393s, 10068 KB] [GEN] 410111210 (parent: 410100214)
+[t=0.010408s, 10068 KB] [GEN] 401101402 (parent: 411000412)
+[t=0.010425s, 10068 KB] [GEN] 410011410 (parent: 411000412)
+[t=0.010440s, 10068 KB] [GEN] 411101013 (parent: 410100413)
+[t=0.010455s, 10068 KB] [GEN] 410011410 (parent: 410100413)
+[t=0.010474s, 10068 KB] [GEN] 011001424 (parent: 201100424)
+[t=0.010490s, 10068 KB] [GEN] 201111420 (parent: 201100424)
+[t=0.010505s, 10068 KB] [GEN] 410101401 (parent: 411000421)
+[t=0.010523s, 10068 KB] [GEN] 401011420 (parent: 411000421)
+[t=0.010538s, 10068 KB] [GEN] 011101423 (parent: 401100423)
+[t=0.010554s, 10068 KB] [GEN] 401011420 (parent: 401100423)
+[t=0.010579s, 10068 KB] [GEN] 010011434 (parent: 200110434)
+[t=0.010608s, 10068 KB] [GEN] 201111034 (parent: 200110434)
+[t=0.010633s, 10068 KB] [GEN] 010111234 (parent: 400110234)
+[t=0.010658s, 10068 KB] [GEN] 401011034 (parent: 400110234)
+[t=0.010691s, 10068 KB] [GEN] 411001041 (parent: 410010341)
+[t=0.010713s, 10068 KB] [GEN] 410111301 (parent: 410010341)
+[t=0.010734s, 10068 KB] [GEN] 411011031 (parent: 410010431)
+[t=0.010753s, 10068 KB] [GEN] 410101401 (parent: 410010431)
+[t=0.010771s, 10068 KB] [GEN] 011001442 (parent: 301010442)
+[t=0.010797s, 10068 KB] [GEN] 301111402 (parent: 301010442)
+[t=0.010819s, 10068 KB] [GEN] 011011432 (parent: 401010432)
+[t=0.010844s, 10068 KB] [GEN] 401101402 (parent: 401010432)
+[t=0.010873s, 10068 KB] [GEN] 010101443 (parent: 300110443)
+[t=0.010897s, 10068 KB] [GEN] 301111043 (parent: 300110443)
+[t=0.010913s, 10068 KB] [GEN] 010111343 (parent: 400110343)
+[t=0.010931s, 10068 KB] [GEN] 401101043 (parent: 400110343)
+[t=0.010949s, 10068 KB] Couldn't find a solution with width_k = 2
+[t=0.010963s, 10068 KB] Restarting search with increased width_k = 3
+[t=0.010971s, 10068 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=0.010989s, 10068 KB] Initial heuristic value for blind: 1
+[t=0.011034s, 10068 KB] [GEN] 010001444 (parent: 400000444)
+[t=0.011055s, 10068 KB] [GEN] 401001044 (parent: 400000444)
+[t=0.011126s, 10068 KB] [GEN] 400101404 (parent: 400000444)
+[t=0.011206s, 10068 KB] [GEN] 400011440 (parent: 400000444)
+[t=0.011300s, 10068 KB] [GEN] 400000444 (parent: 010001444)
+[t=0.011398s, 10068 KB] [GEN] 101000444 (parent: 010001444)
+[t=0.011582s, 10068 KB] [GEN] 200100444 (parent: 010001444)
+[t=0.011663s, 10068 KB] [GEN] 300010444 (parent: 010001444)
+[t=0.011754s, 10068 KB] [GEN] 410000144 (parent: 401001044)
+[t=0.011861s, 10068 KB] [GEN] 400100244 (parent: 401001044)
+[t=0.011967s, 10068 KB] [GEN] 400010344 (parent: 401001044)
+[t=0.012086s, 10204 KB] [GEN] 400000444 (parent: 401001044)
+[t=0.012207s, 10204 KB] [GEN] 410000414 (parent: 400101404)
+[t=0.012423s, 10204 KB] [GEN] 401000424 (parent: 400101404)
+[t=0.012500s, 10204 KB] [GEN] 400010434 (parent: 400101404)
+[t=0.012605s, 10204 KB] [GEN] 400000444 (parent: 400101404)
+[t=0.012727s, 10204 KB] [GEN] 410000441 (parent: 400011440)
+[t=0.012759s, 10204 KB] [GEN] 401000442 (parent: 400011440)
+[t=0.012881s, 10204 KB] [GEN] 400100443 (parent: 400011440)
+[t=0.013008s, 10204 KB] [GEN] 400000444 (parent: 400011440)
+[t=0.013228s, 10204 KB] [GEN] 010001444 (parent: 101000444)
+[t=0.013265s, 10204 KB] [GEN] 101101404 (parent: 101000444)
+[t=0.013304s, 10204 KB] [GEN] 101011440 (parent: 101000444)
+[t=0.013596s, 10204 KB] [GEN] 010001444 (parent: 200100444)
+[t=0.013901s, 10204 KB] [GEN] 201101044 (parent: 200100444)
+[t=0.014213s, 10204 KB] [GEN] 200111440 (parent: 200100444)
+[t=0.014367s, 10204 KB] [GEN] 010001444 (parent: 300010444)
+[t=0.014590s, 10204 KB] [GEN] 301011044 (parent: 300010444)
+[t=0.014642s, 10204 KB] [GEN] 300111404 (parent: 300010444)
+[t=0.014818s, 10204 KB] [GEN] 401001044 (parent: 410000144)
+[t=0.014996s, 10204 KB] [GEN] 410101104 (parent: 410000144)
+[t=0.015154s, 10204 KB] [GEN] 410011140 (parent: 410000144)
+[t=0.015395s, 10204 KB] [GEN] 010101244 (parent: 400100244)
+[t=0.015592s, 10204 KB] [GEN] 401001044 (parent: 400100244)
+[t=0.015829s, 10204 KB] [GEN] 400111240 (parent: 400100244)
+[t=0.016083s, 10204 KB] [GEN] 010011344 (parent: 400010344)
+[t=0.016260s, 10204 KB] [GEN] 401001044 (parent: 400010344)
+[t=0.016436s, 10204 KB] [GEN] 400111304 (parent: 400010344)
+[t=0.016468s, 10204 KB] [GEN] 411001014 (parent: 410000414)
+[t=0.017067s, 10204 KB] [GEN] 400101404 (parent: 410000414)
+[t=0.017134s, 10204 KB] [GEN] 410011410 (parent: 410000414)
+[t=0.017182s, 10204 KB] [GEN] 011001424 (parent: 401000424)
+[t=0.017374s, 10204 KB] [GEN] 400101404 (parent: 401000424)
+[t=0.017574s, 10204 KB] [GEN] 401011420 (parent: 401000424)
+[t=0.017611s, 10204 KB] [GEN] 010011434 (parent: 400010434)
+[t=0.018040s, 10204 KB] [GEN] 401011034 (parent: 400010434)
+[t=0.018174s, 10204 KB] [GEN] 400101404 (parent: 400010434)
+[t=0.018345s, 10204 KB] [GEN] 411001041 (parent: 410000441)
+[t=0.018387s, 10204 KB] [GEN] 410101401 (parent: 410000441)
+[t=0.018569s, 10204 KB] [GEN] 400011440 (parent: 410000441)
+[t=0.018749s, 10204 KB] [GEN] 011001442 (parent: 401000442)
+[t=0.019002s, 10204 KB] [GEN] 401101402 (parent: 401000442)
+[t=0.019174s, 10204 KB] [GEN] 400011440 (parent: 401000442)
+[t=0.019375s, 10204 KB] [GEN] 010101443 (parent: 400100443)
+[t=0.019424s, 10204 KB] [GEN] 401101043 (parent: 400100443)
+[t=0.019626s, 10204 KB] [GEN] 400011440 (parent: 400100443)
+[t=0.019942s, 10204 KB] [GEN] 111000414 (parent: 101101404)
+[t=0.020035s, 10204 KB] [GEN] 101010434 (parent: 101101404)
+[t=0.020238s, 10204 KB] [GEN] 101000444 (parent: 101101404)
+[t=0.020432s, 10204 KB] [GEN] 111000441 (parent: 101011440)
+[t=0.020489s, 10204 KB] [GEN] 101100443 (parent: 101011440)
+[t=0.020849s, 10204 KB] [GEN] 101000444 (parent: 101011440)
+[t=0.020993s, 10204 KB] [GEN] 210100144 (parent: 201101044)
+[t=0.021029s, 10204 KB] [GEN] 200110344 (parent: 201101044)
+[t=0.021206s, 10204 KB] [GEN] 200100444 (parent: 201101044)
+[t=0.021377s, 10204 KB] [GEN] 210100441 (parent: 200111440)
+[t=0.021415s, 10204 KB] [GEN] 201100442 (parent: 200111440)
+[t=0.021887s, 10204 KB] [GEN] 200100444 (parent: 200111440)
+[t=0.021956s, 10204 KB] [GEN] 310010144 (parent: 301011044)
+[t=0.022002s, 10204 KB] [GEN] 300110244 (parent: 301011044)
+[t=0.022002s, 10204 KB] [GEN] 300010444 (parent: 301011044)
+[t=0.022002s, 10204 KB] [GEN] 310010414 (parent: 300111404)
+[t=0.022002s, 10204 KB] [GEN] 301010424 (parent: 300111404)
+[t=0.022867s, 10204 KB] [GEN] 300010444 (parent: 300111404)
+[t=0.022867s, 10204 KB] [GEN] 411000124 (parent: 410101104)
+[t=0.022867s, 10204 KB] [GEN] 410010134 (parent: 410101104)
+[t=0.022867s, 10204 KB] [GEN] 410000144 (parent: 410101104)
+[t=0.022867s, 10204 KB] [GEN] 411000142 (parent: 410011140)
+[t=0.022867s, 10204 KB] [GEN] 410100143 (parent: 410011140)
+[t=0.023914s, 10204 KB] [GEN] 410000144 (parent: 410011140)
+[t=0.023978s, 10204 KB] [GEN] 400100244 (parent: 010101244)
+[t=0.024020s, 10204 KB] [GEN] 101100244 (parent: 010101244)
+[t=0.024063s, 10204 KB] [GEN] 300110244 (parent: 010101244)
+[t=0.024235s, 10204 KB] [GEN] 410100241 (parent: 400111240)
+[t=0.024312s, 10204 KB] [GEN] 401100242 (parent: 400111240)
+[t=0.024500s, 10204 KB] [GEN] 400100244 (parent: 400111240)
+[t=0.024908s, 10204 KB] [GEN] 400010344 (parent: 010011344)
+[t=0.024970s, 10204 KB] [GEN] 101010344 (parent: 010011344)
+[t=0.025026s, 10204 KB] [GEN] 200110344 (parent: 010011344)
+[t=0.025220s, 10204 KB] [GEN] 410010314 (parent: 400111304)
+[t=0.025304s, 10204 KB] [GEN] 401010324 (parent: 400111304)
+[t=0.025789s, 10204 KB] [GEN] 400010344 (parent: 400111304)
+[t=0.025868s, 10204 KB] [GEN] 410100214 (parent: 411001014)
+[t=0.025934s, 10204 KB] [GEN] 410010314 (parent: 411001014)
+[t=0.026163s, 10204 KB] [GEN] 410000414 (parent: 411001014)
+[t=0.026266s, 10204 KB] [GEN] 411000412 (parent: 410011410)
+[t=0.026319s, 10204 KB] [GEN] 410100413 (parent: 410011410)
+[t=0.026725s, 10204 KB] [GEN] 410000414 (parent: 410011410)
+[t=0.026939s, 10204 KB] [GEN] 401000424 (parent: 011001424)
+[t=0.027006s, 10204 KB] [GEN] 201100424 (parent: 011001424)
+[t=0.027076s, 10204 KB] [GEN] 301010424 (parent: 011001424)
+[t=0.027278s, 10204 KB] [GEN] 411000421 (parent: 401011420)
+[t=0.027679s, 10204 KB] [GEN] 401100423 (parent: 401011420)
+[t=0.027799s, 10204 KB] [GEN] 401000424 (parent: 401011420)
+[t=0.028022s, 10204 KB] [GEN] 400010434 (parent: 010011434)
+[t=0.028069s, 10204 KB] [GEN] 101010434 (parent: 010011434)
+[t=0.028119s, 10204 KB] [GEN] 200110434 (parent: 010011434)
+[t=0.028405s, 10204 KB] [GEN] 410010134 (parent: 401011034)
+[t=0.028466s, 10204 KB] [GEN] 400110234 (parent: 401011034)
+[t=0.028576s, 10204 KB] [GEN] 400010434 (parent: 401011034)
+[t=0.028794s, 10204 KB] [GEN] 410100241 (parent: 411001041)
+[t=0.028860s, 10204 KB] [GEN] 410010341 (parent: 411001041)
+[t=0.028957s, 10204 KB] [GEN] 410000441 (parent: 411001041)
+[t=0.029180s, 10204 KB] [GEN] 411000421 (parent: 410101401)
+[t=0.029231s, 10204 KB] [GEN] 410010431 (parent: 410101401)
+[t=0.029321s, 10204 KB] [GEN] 410000441 (parent: 410101401)
+[t=0.029519s, 10204 KB] [GEN] 401000442 (parent: 011001442)
+[t=0.029568s, 10204 KB] [GEN] 201100442 (parent: 011001442)
+[t=0.029617s, 10204 KB] [GEN] 301010442 (parent: 011001442)
+[t=0.029697s, 10204 KB] [GEN] 411000412 (parent: 401101402)
+[t=0.029917s, 10204 KB] [GEN] 401010432 (parent: 401101402)
+[t=0.030174s, 10204 KB] [GEN] 401000442 (parent: 401101402)
+[t=0.030401s, 10204 KB] [GEN] 400100443 (parent: 010101443)
+[t=0.030451s, 10204 KB] [GEN] 101100443 (parent: 010101443)
+[t=0.030508s, 10204 KB] [GEN] 300110443 (parent: 010101443)
+[t=0.030595s, 10204 KB] [GEN] 410100143 (parent: 401101043)
+[t=0.030818s, 10204 KB] [GEN] 400110343 (parent: 401101043)
+[t=0.031071s, 10204 KB] [GEN] 400100443 (parent: 401101043)
+[t=0.031273s, 10204 KB] [GEN] 101101404 (parent: 111000414)
+[t=0.031334s, 10204 KB] [GEN] 111011410 (parent: 111000414)
+[t=0.031401s, 10204 KB] [GEN] 010011434 (parent: 101010434)
+[t=0.031666s, 10204 KB] [GEN] 101101404 (parent: 101010434)
+[t=0.031743s, 10204 KB] [GEN] 111101401 (parent: 111000441)
+[t=0.032020s, 10204 KB] [GEN] 101011440 (parent: 111000441)
+[t=0.032214s, 10204 KB] [GEN] 010101443 (parent: 101100443)
+[t=0.032283s, 10204 KB] [GEN] 101011440 (parent: 101100443)
+[t=0.032368s, 10204 KB] [GEN] 201101044 (parent: 210100144)
+[t=0.032443s, 10204 KB] [GEN] 210111140 (parent: 210100144)
+[t=0.032936s, 10204 KB] [GEN] 010011344 (parent: 200110344)
+[t=0.033228s, 10204 KB] [GEN] 201101044 (parent: 200110344)
+[t=0.033318s, 10204 KB] [GEN] 211101041 (parent: 210100441)
+[t=0.033393s, 10204 KB] [GEN] 200111440 (parent: 210100441)
+[t=0.033754s, 10204 KB] [GEN] 011001442 (parent: 201100442)
+[t=0.033872s, 10204 KB] [GEN] 200111440 (parent: 201100442)
+[t=0.033963s, 10204 KB] [GEN] 301011044 (parent: 310010144)
+[t=0.034044s, 10204 KB] [GEN] 310111104 (parent: 310010144)
+[t=0.034137s, 10204 KB] [GEN] 010101244 (parent: 300110244)
+[t=0.034433s, 10204 KB] [GEN] 301011044 (parent: 300110244)
+[t=0.034664s, 10204 KB] [GEN] 311011014 (parent: 310010414)
+[t=0.034789s, 10204 KB] [GEN] 300111404 (parent: 310010414)
+[t=0.035045s, 10204 KB] [GEN] 011001424 (parent: 301010424)
+[t=0.035298s, 10204 KB] [GEN] 300111404 (parent: 301010424)
+[t=0.035658s, 10204 KB] [GEN] 410101104 (parent: 411000124)
+[t=0.035750s, 10204 KB] [GEN] 411011120 (parent: 411000124)
+[t=0.035835s, 10204 KB] [GEN] 401011034 (parent: 410010134)
+[t=0.036153s, 10204 KB] [GEN] 410101104 (parent: 410010134)
+[t=0.036275s, 10204 KB] [GEN] 411101102 (parent: 411000142)
+[t=0.036699s, 10204 KB] [GEN] 410011140 (parent: 411000142)
+[t=0.037127s, 10204 KB] [GEN] 401101043 (parent: 410100143)
+[t=0.037221s, 10204 KB] [GEN] 410011140 (parent: 410100143)
+[t=0.037327s, 10204 KB] [GEN] 010101244 (parent: 101100244)
+[t=0.037578s, 10204 KB] [GEN] 101111240 (parent: 101100244)
+[t=0.037677s, 10204 KB] [GEN] 411001041 (parent: 410100241)
+[t=0.037966s, 10204 KB] [GEN] 400111240 (parent: 410100241)
+[t=0.038055s, 10204 KB] [GEN] 011101242 (parent: 401100242)
+[t=0.038258s, 10204 KB] [GEN] 400111240 (parent: 401100242)
+[t=0.038432s, 10204 KB] [GEN] 010011344 (parent: 101010344)
+[t=0.038506s, 10204 KB] [GEN] 101111304 (parent: 101010344)
+[t=0.038738s, 10204 KB] [GEN] 411001014 (parent: 410010314)
+[t=0.038983s, 10204 KB] [GEN] 400111304 (parent: 410010314)
+[t=0.039067s, 10204 KB] [GEN] 011011324 (parent: 401010324)
+[t=0.039155s, 10204 KB] [GEN] 400111304 (parent: 401010324)
+[t=0.039446s, 10204 KB] [GEN] 411001014 (parent: 410100214)
+[t=0.039530s, 10204 KB] [GEN] 410111210 (parent: 410100214)
+[t=0.039797s, 10204 KB] [GEN] 401101402 (parent: 411000412)
+[t=0.040056s, 10204 KB] [GEN] 410011410 (parent: 411000412)
+[t=0.040134s, 10204 KB] [GEN] 411101013 (parent: 410100413)
+[t=0.040208s, 10204 KB] [GEN] 410011410 (parent: 410100413)
+[t=0.040490s, 10204 KB] [GEN] 011001424 (parent: 201100424)
+[t=0.040747s, 10204 KB] [GEN] 201111420 (parent: 201100424)
+[t=0.040835s, 10204 KB] [GEN] 410101401 (parent: 411000421)
+[t=0.041118s, 10204 KB] [GEN] 401011420 (parent: 411000421)
+[t=0.041218s, 10204 KB] [GEN] 011101423 (parent: 401100423)
+[t=0.041652s, 10204 KB] [GEN] 401011420 (parent: 401100423)
+[t=0.041769s, 10204 KB] [GEN] 010011434 (parent: 200110434)
+[t=0.041852s, 10204 KB] [GEN] 201111034 (parent: 200110434)
+[t=0.041927s, 10204 KB] [GEN] 010111234 (parent: 400110234)
+[t=0.042203s, 10204 KB] [GEN] 401011034 (parent: 400110234)
+[t=0.042669s, 10204 KB] [GEN] 411001041 (parent: 410010341)
+[t=0.042766s, 10204 KB] [GEN] 410111301 (parent: 410010341)
+[t=0.042868s, 10204 KB] [GEN] 411011031 (parent: 410010431)
+[t=0.043601s, 10204 KB] [GEN] 410101401 (parent: 410010431)
+[t=0.043911s, 10204 KB] [GEN] 011001442 (parent: 301010442)
+[t=0.044012s, 10204 KB] [GEN] 301111402 (parent: 301010442)
+[t=0.044639s, 10204 KB] [GEN] 011011432 (parent: 401010432)
+[t=0.045463s, 10204 KB] [GEN] 401101402 (parent: 401010432)
+[t=0.045938s, 10204 KB] [GEN] 010101443 (parent: 300110443)
+[t=0.046048s, 10204 KB] [GEN] 301111043 (parent: 300110443)
+[t=0.046383s, 10204 KB] [GEN] 010111343 (parent: 400110343)
+[t=0.046658s, 10204 KB] [GEN] 401101043 (parent: 400110343)
+[t=0.046979s, 10204 KB] [GEN] 111100413 (parent: 111011410)
+[t=0.047382s, 10204 KB] [GEN] 111000414 (parent: 111011410)
+[t=0.047572s, 10204 KB] [GEN] 111010431 (parent: 111101401)
+[t=0.047669s, 10204 KB] [GEN] 111000441 (parent: 111101401)
+[t=0.047961s, 10204 KB] [GEN] 211100142 (parent: 210111140)
+[t=0.048329s, 10204 KB] [GEN] 210100144 (parent: 210111140)
+[t=0.048541s, 10204 KB] [GEN] 210110341 (parent: 211101041)
+[t=0.048627s, 10204 KB] [GEN] 210100441 (parent: 211101041)
+[t=0.048934s, 10204 KB] [GEN] 311010124 (parent: 310111104)
+[t=0.049230s, 10204 KB] [GEN] 310010144 (parent: 310111104)
+[t=0.049433s, 10204 KB] [GEN] 310110214 (parent: 311011014)
+[t=0.049523s, 10204 KB] [GEN] 310010414 (parent: 311011014)
+[t=0.049798s, 10204 KB] [GEN] 411100123 (parent: 411011120)
+[t=0.049894s, 10204 KB] Solution found!
+[t=0.049903s, 10204 KB] Found a solution with width_k = 3
+[t=0.049911s, 10204 KB] Actual search time: 0.047027s
+pick-up b (1)
+stack b a (1)
+pick-up c (1)
+stack c b (1)
+pick-up d (1)
+stack d c (1)
+[t=0.049920s, 10204 KB] Plan length: 6 step(s).
+[t=0.049920s, 10204 KB] Plan cost: 6
+[t=0.049920s, 10204 KB] Expanded 0 state(s).
+[t=0.049920s, 10204 KB] Reopened 0 state(s).
+[t=0.049920s, 10204 KB] Evaluated 201 state(s).
+[t=0.049920s, 10204 KB] Evaluations: 107
+[t=0.049920s, 10204 KB] Generated 469 state(s).
+[t=0.049920s, 10204 KB] Dead ends: 0 state(s).
+[t=0.049920s, 10204 KB] Number of registered states: 108
+[t=0.049920s, 10204 KB] Int hash set load factor: 108/128 = 0.843750
+[t=0.049920s, 10204 KB] Int hash set resizes: 7
+[t=0.049920s, 10204 KB] Search time: 0.047074s
+[t=0.049920s, 10204 KB] Total time: 0.049920s
 Solution found.
-Peak memory: 14648 KB
+Peak memory: 10204 KB
 Remove intermediate file output.sas
 search exit code: 0
 
+INFO     Planner time: 0.18s

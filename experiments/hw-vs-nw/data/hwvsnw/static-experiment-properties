@@ -1,15 +1,17 @@
 {
   "algorithms": [
     "fw-hw1",
-    "fw-nw2"
+    "fw-nw1",
+    "fw-hybrid1",
+    "fw-or1",
+    "fw-newclose1",
+    "fw-closenew1"
   ],
   "experiment_file": "hwvsnw.py",
   "runs": 6,
   "suite": {
     "/home/valdrin/downward/downward/downward-benchmarks": [
-      "depot:p01.pddl",
-      "grid:prob01.pddl",
-      "gripper:prob01.pddl"
+      "blocks:probBLOCKS-4-0.pddl"
     ]
   }
 }
