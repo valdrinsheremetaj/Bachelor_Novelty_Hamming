@@ -5,7 +5,10 @@
 enum class Widthtype {
     Hamming,
     Novelty,
-    Hybrid
+    Hybrid,
+    OR,
+    newClose,
+    closeNew
 };
 
 #endif

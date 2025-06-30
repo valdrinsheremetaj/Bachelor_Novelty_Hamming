@@ -35,7 +35,10 @@ namespace framework {
         if (width_type == 0) {this->width_type = Widthtype::Hamming;}
         else if (width_type == 1) {this->width_type = Widthtype::Novelty;}
         else if (width_type == 2) {this->width_type = Widthtype::Hybrid;}
-        else {throw runtime_error("Invalid width type specified. Use 0 for Hamming, 1 for Novelty or 2 for Hybrid.");}}
+        else if (width_type == 3) {this->width_type = Widthtype::OR;}
+        else if (width_type == 4) {this->width_type = Widthtype::newClose;}
+        else if (width_type == 5) {this->width_type = Widthtype::closeNew;}
+        else {throw runtime_error("Invalid width type specified. Use 0 for Hamming, 1 for Novelty or 2 for Hybrid, 3 for OR, 4 for newClose and 5 for closeNew.");}}
 
 void Framework::initialize() {
     log << "Conducting width-based search"
@@ -53,6 +56,9 @@ void Framework::initialize() {
     EvaluationContext eval_context(initial_state, 0, true, &statistics);
     statistics.inc_evaluated_states();
 
+    SearchNode initial_node = search_space.get_node(initial_state);
+    initial_node.open_initial();
+
     open_list->insert(eval_context, initial_state.get_id());
 
     print_initial_evaluator_values(eval_context);
@@ -65,6 +71,7 @@ void Framework::print_statistics() const {
 }
 
 SearchStatus Framework::step() {
+    std::optional<SearchNode> node;
     // while open is not empty -> maybe while true around it
     if (open_list->empty()) {
         log << "Couldn't find a solution with width_k = " << width_k << endl;
@@ -78,13 +85,7 @@ SearchStatus Framework::step() {
     // current = pop first element from open
     StateID sid = open_list->remove_min();
     State current = state_registry.lookup_state(sid);
-    log << "Expanding state: ";
-    for (size_t i = 0; i < current.size(); ++i) {
-        log << current[i].get_value();
-    }
-    log << endl;
-
-    statistics.inc_expanded(); 
+    node.emplace(search_space.get_node(current));
 
 
     if (check_goal_and_set_plan(current))
@@ -101,6 +102,20 @@ SearchStatus Framework::step() {
         // creation of candidate
         State candidate = state_registry.get_successor_state(current, op);
         statistics.inc_generated();
+        log << "[GEN] ";
+        for (size_t i = 0; i < candidate.size(); ++i)
+            log << candidate[i].get_value();
+        log << " (parent: ";
+        for (size_t i = 0; i < current.size(); ++i)
+            log << current[i].get_value();
+        log << ")" << endl;
+        
+        SearchNode candidate_node = search_space.get_node(candidate);
+        if (candidate_node.is_new()) {
+            candidate_node.open_new_node(search_space.get_node(current), op, op.get_cost());
+        }
+
+
 
         // check if candidate is a goal state
         if (check_goal_and_set_plan(candidate)) {
@@ -151,12 +166,35 @@ int Framework::hamming_distance(const State &a, const State &b) const {
 }
 
 bool Framework::progressCheck(const State &candidate, const State &reference) {
-    if (width_type == Widthtype::Hamming)
-        return hamming_progress_check(candidate, reference);
-    else if (width_type == Widthtype::Novelty)
-        return novelty_progress_check(candidate, reference);
-    else if (width_type == Widthtype::Hybrid)
-        return hamming_progress_check(candidate, reference) && novelty_progress_check(candidate, reference);
+    switch (width_type) {
+        case Widthtype::Hamming:
+            return hamming_progress_check(candidate, reference);
+
+        case Widthtype::Novelty:
+            return novelty_progress_check(candidate, reference);
+
+        case Widthtype::Hybrid:
+            return hamming_progress_check(candidate, reference) &&
+                   novelty_progress_check(candidate, reference);
+
+        case Widthtype::OR:
+            return hamming_progress_check(candidate, reference) ||
+                   novelty_progress_check(candidate, reference);
+
+        case Widthtype::newClose:
+            // first novelty, then hamming: Try novelty, if not progress, try hamming
+            if (novelty_progress_check(candidate, reference))
+                return true;
+            else
+                return hamming_progress_check(candidate, reference);
+
+        case Widthtype::closeNew:
+            // first hamming, then novelty: Try hamming, if not progress, try novelty
+            if (hamming_progress_check(candidate, reference))
+                return true;
+            else
+                return novelty_progress_check(candidate, reference);
+    }
 }
 
 void Framework::updateClosed(const State &candidate, Closed &closed, int k) {
@@ -164,7 +202,7 @@ void Framework::updateClosed(const State &candidate, Closed &closed, int k) {
         hamming_update_closed(candidate, closed, k);
     else if (width_type == Widthtype::Novelty)
         novelty_update_closed(candidate, closed, k);
-    else if (width_type == Widthtype::Hybrid) {
+    else if (width_type == Widthtype::Hybrid || width_type == Widthtype::OR || width_type == Widthtype::closeNew || width_type == Widthtype::newClose) {
         hamming_update_closed(candidate, closed, k);
         novelty_update_closed(candidate, closed, k);
     }
@@ -174,13 +212,37 @@ void Framework::updateClosed(const State &candidate, Closed &closed, int k) {
 
 // if we expand a state, depends of if the state is already closed -> not needed and if candidates hamming distane is <= k, with respect to reference
 bool Framework::expand_check(const State &candidate, Closed &closed, int k, const State &reference) {
-    if (width_type == Widthtype::Hamming)
-        return hamming_expand_check(candidate, closed, k, reference);
-    else if (width_type == Widthtype::Novelty)
-        return novelty_expand_check(candidate, closed, k);
-    else if (width_type == Widthtype::Hybrid)
-        return hamming_expand_check(candidate, closed, k, reference) && novelty_expand_check(candidate, closed, k);
+    switch (width_type) {
+        case Widthtype::Hamming:
+            return hamming_expand_check(candidate, closed, k, reference);
+
+        case Widthtype::Novelty:
+            return novelty_expand_check(candidate, closed, k);
+
+        case Widthtype::Hybrid:
+            return hamming_expand_check(candidate, closed, k, reference) &&
+                   novelty_expand_check(candidate, closed, k);
+
+        case Widthtype::OR:
+            return hamming_expand_check(candidate, closed, k, reference) ||
+                   novelty_expand_check(candidate, closed, k);
+
+        case Widthtype::newClose:
+            // novelty first, if not, try hamming
+            if (novelty_expand_check(candidate, closed, k))
+                return true;
+            else
+                return hamming_expand_check(candidate, closed, k, reference);
+
+        case Widthtype::closeNew:
+            // hamming first, if not, try novelty
+            if (hamming_expand_check(candidate, closed, k, reference))
+                return true;
+            else
+                return novelty_expand_check(candidate, closed, k);
+    }
 }
+
 
 bool Framework::hamming_progress_check(const State &candidate, const State &reference) const {
     int wrong_candidate = 0, wrong_reference = 0;
