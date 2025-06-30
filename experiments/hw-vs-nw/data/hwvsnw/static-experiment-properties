@@ -3,15 +3,32 @@
     "fw-hw1",
     "fw-nw1",
     "fw-hybrid1",
-    "fw-or1",
-    "fw-newclose1",
-    "fw-closenew1"
+    "fw-or1"
   ],
   "experiment_file": "hwvsnw.py",
-  "runs": 6,
+  "runs": 80,
   "suite": {
     "/home/valdrin/downward/downward/downward-benchmarks": [
-      "blocks:probBLOCKS-4-0.pddl"
+      "gripper:prob01.pddl",
+      "gripper:prob02.pddl",
+      "gripper:prob03.pddl",
+      "gripper:prob04.pddl",
+      "gripper:prob05.pddl",
+      "gripper:prob06.pddl",
+      "gripper:prob07.pddl",
+      "gripper:prob08.pddl",
+      "gripper:prob09.pddl",
+      "gripper:prob10.pddl",
+      "gripper:prob11.pddl",
+      "gripper:prob12.pddl",
+      "gripper:prob13.pddl",
+      "gripper:prob14.pddl",
+      "gripper:prob15.pddl",
+      "gripper:prob16.pddl",
+      "gripper:prob17.pddl",
+      "gripper:prob18.pddl",
+      "gripper:prob19.pddl",
+      "gripper:prob20.pddl"
     ]
   }
 }

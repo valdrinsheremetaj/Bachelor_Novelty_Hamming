@@ -36,9 +36,7 @@ namespace framework {
         else if (width_type == 1) {this->width_type = Widthtype::Novelty;}
         else if (width_type == 2) {this->width_type = Widthtype::Hybrid;}
         else if (width_type == 3) {this->width_type = Widthtype::OR;}
-        else if (width_type == 4) {this->width_type = Widthtype::newClose;}
-        else if (width_type == 5) {this->width_type = Widthtype::closeNew;}
-        else {throw runtime_error("Invalid width type specified. Use 0 for Hamming, 1 for Novelty or 2 for Hybrid, 3 for OR, 4 for newClose and 5 for closeNew.");}}
+        else {throw runtime_error("Invalid width type specified. Use 0 for Hamming, 1 for Novelty , 2 for Hybrid or 3 for OR.");}}
 
 void Framework::initialize() {
     log << "Conducting width-based search"
@@ -172,19 +170,6 @@ bool Framework::progressCheck(const State &candidate, const State &reference) {
             return hamming_progress_check(candidate, reference) ||
                    novelty_progress_check(candidate, reference);
 
-        case Widthtype::newClose:
-            // first novelty, then hamming: Try novelty, if not progress, try hamming
-            if (novelty_progress_check(candidate, reference))
-                return true;
-            else
-                return hamming_progress_check(candidate, reference);
-
-        case Widthtype::closeNew:
-            // first hamming, then novelty: Try hamming, if not progress, try novelty
-            if (hamming_progress_check(candidate, reference))
-                return true;
-            else
-                return novelty_progress_check(candidate, reference);
     }
 }
 
@@ -193,7 +178,7 @@ void Framework::updateClosed(const State &candidate, Closed &closed, int k) {
         hamming_update_closed(candidate, closed, k);
     else if (width_type == Widthtype::Novelty)
         novelty_update_closed(candidate, closed, k);
-    else if (width_type == Widthtype::Hybrid || width_type == Widthtype::OR || width_type == Widthtype::closeNew || width_type == Widthtype::newClose) {
+    else if (width_type == Widthtype::Hybrid || width_type == Widthtype::OR) {
         hamming_update_closed(candidate, closed, k);
         novelty_update_closed(candidate, closed, k);
     }
@@ -217,20 +202,6 @@ bool Framework::expand_check(const State &candidate, Closed &closed, int k, cons
         case Widthtype::OR:
             return hamming_expand_check(candidate, closed, k, reference) ||
                    novelty_expand_check(candidate, closed, k);
-
-        case Widthtype::newClose:
-            // novelty first, if not, try hamming
-            if (novelty_expand_check(candidate, closed, k))
-                return true;
-            else
-                return hamming_expand_check(candidate, closed, k, reference);
-
-        case Widthtype::closeNew:
-            // hamming first, if not, try novelty
-            if (hamming_expand_check(candidate, closed, k, reference))
-                return true;
-            else
-                return novelty_expand_check(candidate, closed, k);
     }
 }
 

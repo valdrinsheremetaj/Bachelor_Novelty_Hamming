@@ -1,28 +1,28 @@
 {
-  "algorithm": "fw-hybrid1",
+  "algorithm": "fw-hw1",
   "build_options": [],
   "component_options": [
     "--search",
-    "framework(open=single(eval=blind()), Widthtype=2, width_k=1)"
+    "framework(open=single(eval=blind()), Widthtype=0, width_k=1)"
   ],
-  "domain": "blocks",
+  "domain": "gripper",
   "driver_options": [
     "--overall-time-limit",
     "30m",
     "--overall-memory-limit",
     "3584M",
     "--overall-time-limit",
-    "10m"
+    "30m"
   ],
   "experiment_name": "hwvsnw",
-  "global_revision": "253689b4e44a61502fa9b82d40c09eae7f0090b8",
+  "global_revision": "36cb9e774e2402528e3210acb45f5a8189af19f5",
   "id": [
-    "fw-hybrid1",
-    "blocks",
-    "probBLOCKS-4-0.pddl"
+    "fw-hw1",
+    "gripper",
+    "prob03.pddl"
   ],
   "local_revision": "hw-vs-nw",
-  "problem": "probBLOCKS-4-0.pddl",
+  "problem": "prob03.pddl",
   "repo": "/home/valdrin/downward/downward",
   "run_dir": "runs-00001-00100/00003"
 }

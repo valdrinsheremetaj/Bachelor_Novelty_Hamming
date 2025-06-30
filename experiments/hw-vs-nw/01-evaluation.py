@@ -27,8 +27,6 @@ project.fetch_algorithms(
     "fw-nw1",
     "fw-hybrid1",
     "fw-or1",
-    "fw-newclose1",
-    "fw-closenew1",
 )
 
 filters = [project.add_evaluations_per_time]

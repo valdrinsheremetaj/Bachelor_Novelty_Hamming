@@ -1,1 +1,1 @@
-../../../../../../downward-benchmarks/blocks/probBLOCKS-4-0.pddl
+../../../../../../downward-benchmarks/gripper/prob01.pddl
