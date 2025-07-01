@@ -53,5 +53,11 @@ def get_parser():
         r"Found a solution with width_k = (\d+)",
         type=int,
     )
+    parser.add_pattern(
+    "generated",
+    r"Generated (\d+) state\(s\)\.",
+    type=int,
+    )
+
     return parser
 

@@ -11,10 +11,12 @@ ATTRIBUTES = [
     "coverage",
     "cost",
     "evaluations",
+    "generated",   
     "memory",
     "width_k",      
     project.EVALUATIONS_PER_TIME,
 ]
+
 
 exp = Experiment()
 exp.add_step(

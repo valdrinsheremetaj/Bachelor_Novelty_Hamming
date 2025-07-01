@@ -1,1 +1,1 @@
-../../../../../../downward-benchmarks/gripper/prob04.pddl
+../../../../../../downward-benchmarks/movie/prob01.pddl

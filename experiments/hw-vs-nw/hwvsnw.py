@@ -7,85 +7,21 @@ import project
 
 REPO = project.get_repo_base()
 BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
-SCP_LOGIN = "myname@myserver.com"
-REMOTE_REPOS_DIR = "/infai/username/projects"
+SCP_LOGIN = "sherem0000@login12.scicore.unibas.ch"
+REMOTE_REPOS_DIR = "/infai/sherem0000/projects"
 # If REVISION_CACHE is None, the default "./data/revision-cache/" is used.
 REVISION_CACHE = os.environ.get("DOWNWARD_REVISION_CACHE")
 print(f"Using revision cache: {REVISION_CACHE}")
-if project.REMOTE:
+if not project.REMOTE:
     SUITE = project.SUITE_OPTIMAL_STRIPS
     ENV = project.BaselSlurmEnvironment(email="my.name@myhost.ch")
 else:
     SUITE = [
-    # gripper domain
-    "gripper:prob01.pddl",
-    "gripper:prob02.pddl",
-    "gripper:prob03.pddl",
-    "gripper:prob04.pddl",
-    "gripper:prob05.pddl",
-    "gripper:prob07.pddl",
+   
 
-    # visitall-opt11-strips domain
-    "visitall-opt11-strips:problem02-full.pddl",
-    "visitall-opt11-strips:problem02-half.pddl",
-    "visitall-opt11-strips:problem03-full.pddl",
-    "visitall-opt11-strips:problem03-half.pddl",
-
-    # blocks domain
-    "blocks:probBLOCKS-4-0.pddl",
-    "blocks:probBLOCKS-4-1.pddl",
-    "blocks:probBLOCKS-4-2.pddl",
-    "blocks:probBLOCKS-5-0.pddl",
-    "blocks:probBLOCKS-5-1.pddl",
-    "blocks:probBLOCKS-5-2.pddl",
-    "blocks:probBLOCKS-6-0.pddl",
-    "blocks:probBLOCKS-9-0.pddl",
-    "blocks:probBLOCKS-9-2.pddl",
-    "blocks:probBLOCKS-10-0.pddl",
-    "blocks:probBLOCKS-10-2.pddl",
-
-    # pegsol-08-strips domain
-    "pegsol-08-strips:p01.pddl",
-    "pegsol-08-strips:p02.pddl",
-
-    # movie domain
+    
     "movie:prob01.pddl",
-    "movie:prob02.pddl",
-    "movie:prob03.pddl",
-    "movie:prob04.pddl",
-    "movie:prob05.pddl",
-    "movie:prob06.pddl",
-    "movie:prob07.pddl",
-    "movie:prob08.pddl",
-    "movie:prob09.pddl",
-    "movie:prob10.pddl",
-    "movie:prob11.pddl",
-    "movie:prob12.pddl",
-    "movie:prob13.pddl",
-    "movie:prob14.pddl",
-    "movie:prob15.pddl",
-    "movie:prob16.pddl",
-    "movie:prob17.pddl",
-    "movie:prob18.pddl",
-    "movie:prob19.pddl",
-    "movie:prob20.pddl",
-    "movie:prob21.pddl",
-    "movie:prob22.pddl",
-    "movie:prob23.pddl",
-    "movie:prob24.pddl",
-    "movie:prob25.pddl",
-    "movie:prob26.pddl",
-    "movie:prob27.pddl",
-    "movie:prob28.pddl",
-    "movie:prob29.pddl",
-    "movie:prob30.pddl",
-
-    # openstacks domain
-    "openstacks:p01.pddl",
-    "openstacks:p02.pddl",
-    "openstacks:p03.pddl",
-    "openstacks:p04.pddl",
-    "openstacks:p05.pddl",
+    
 
 ]
 
@@ -116,6 +52,8 @@ ATTRIBUTES = [
     "total_time",
     "coverage",
     "expansions",
+    "evaluations",   
+    "generated",
     "memory",
     "width_k",
     project.EVALUATIONS_PER_TIME,
