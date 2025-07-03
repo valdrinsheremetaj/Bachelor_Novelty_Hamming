@@ -84,6 +84,7 @@ SearchStatus Framework::step() {
     State current = state_registry.lookup_state(sid);
     node.emplace(search_space.get_node(current));
 
+    statistics.inc_expanded();
 
     if (check_goal_and_set_plan(current))
         return SOLVED;

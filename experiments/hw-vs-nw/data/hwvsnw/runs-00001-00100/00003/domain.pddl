@@ -1,1 +1,1 @@
-../../../../../../downward-benchmarks/movie/domain.pddl
+../../../../../../downward-benchmarks/gripper/domain.pddl

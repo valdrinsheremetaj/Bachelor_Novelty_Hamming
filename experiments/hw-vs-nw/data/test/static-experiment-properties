@@ -1,0 +1,15 @@
+{
+  "algorithms": [
+    "fw-hw1",
+    "fw-nw1",
+    "fw-hybrid1",
+    "fw-or1"
+  ],
+  "experiment_file": "test.py",
+  "runs": 4,
+  "suite": {
+    "/infai/sherem0000/projects/Bachelor_Novelty_Hamming/downward-benchmarks": [
+      "movie:prob01.pddl"
+    ]
+  }
+}

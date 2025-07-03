@@ -1,0 +1,1 @@
+../../../../../../downward-benchmarks/movie/prob26.pddl

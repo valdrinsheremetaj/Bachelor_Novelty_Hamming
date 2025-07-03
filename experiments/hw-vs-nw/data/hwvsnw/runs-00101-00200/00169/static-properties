@@ -1,0 +1,29 @@
+{
+  "algorithm": "fw-hybrid1",
+  "build_options": [],
+  "component_options": [
+    "--search",
+    "framework(open=single(eval=blind()), Widthtype=2, width_k=1)"
+  ],
+  "domain": "movie",
+  "driver_options": [
+    "--validate",
+    "--overall-time-limit",
+    "30m",
+    "--overall-memory-limit",
+    "3584M",
+    "--overall-time-limit",
+    "30m"
+  ],
+  "experiment_name": "hwvsnw",
+  "global_revision": "fefcf272623fb3c3676766dff98f22c88de74ae1",
+  "id": [
+    "fw-hybrid1",
+    "movie",
+    "prob30.pddl"
+  ],
+  "local_revision": "hw-vs-nw",
+  "problem": "prob30.pddl",
+  "repo": "/infai/sherem0000/projects/Bachelor_Novelty_Hamming",
+  "run_dir": "runs-00101-00200/00169"
+}

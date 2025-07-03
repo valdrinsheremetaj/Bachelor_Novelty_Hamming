@@ -1,0 +1,1 @@
+../../../../../../downward-benchmarks/openstacks/domain.pddl

@@ -1,0 +1,178 @@
+INFO     planner time limit: 1800s
+INFO     planner memory limit: 3584 MB
+
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: 1799s
+INFO     translator memory limit: 3584 MB
+INFO     translator command line string: /scicore/soft/easybuild/apps/Python/3.11.5-GCCcore-13.2.0/bin/python3 /infai/sherem0000/projects/Bachelor_Novelty_Hamming/experiments/hw-vs-nw/data/hwvsnw/code-fefcf272623fb3c3676766dff98f22c88de74ae1_e5e41175/builds/release/bin/translate/translate.py domain.pddl problem.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.000s CPU, 0.003s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.000s CPU, 0.001s wall-clock]
+Preparing model... [0.000s CPU, 0.001s wall-clock]
+Generated 24 rules.
+Computing model... [0.010s CPU, 0.001s wall-clock]
+111 relevant atoms
+80 auxiliary atoms
+191 final queue length
+248 total queue pushes
+Completing instantiation... [0.000s CPU, 0.001s wall-clock]
+Instantiating: [0.010s CPU, 0.005s wall-clock]
+Computing fact groups...
+Finding invariants...
+10 initial candidates
+Finding invariants: [0.000s CPU, 0.001s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+0 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.001s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Translator axioms removed by simplifying: 0
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.000s CPU, 0.001s wall-clock]
+0 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+3 propositions removed
+Detecting unreachable propositions: [0.000s CPU, 0.001s wall-clock]
+Reordering and filtering variables...
+9 of 9 variables necessary.
+6 of 9 mutex groups necessary.
+50 of 50 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.000s CPU, 0.000s wall-clock]
+Translator variables: 9
+Translator derived variables: 0
+Translator facts: 34
+Translator goal facts: 6
+Translator mutex groups: 6
+Translator total mutex groups size: 24
+Translator operators: 50
+Translator axioms: 0
+Translator task size: 343
+Translator peak memory: 34080 KB
+Writing output... [0.000s CPU, 0.002s wall-clock]
+Done! [0.010s CPU, 0.014s wall-clock]
+translate exit code: 0
+
+INFO     Running search (release).
+INFO     search stdin: output.sas
+INFO     search time limit: 1799s
+INFO     search memory limit: 3584 MB
+INFO     search command line string: /infai/sherem0000/projects/Bachelor_Novelty_Hamming/experiments/hw-vs-nw/data/hwvsnw/code-fefcf272623fb3c3676766dff98f22c88de74ae1_e5e41175/builds/release/bin/downward --search 'framework(open=single(eval=blind()), Widthtype=2, width_k=1)' --internal-plan-file sas_plan < output.sas
+[t=0.000000s, 10384 KB] reading input...
+[t=0.000000s, 10384 KB] done reading input!
+[t=0.004000s, 10640 KB] Initializing blind search heuristic...
+[t=0.004000s, 10640 KB] Building successor generator...done!
+[t=0.004000s, 10640 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.004000s, 10640 KB] time for successor generation creation: 0.000000s
+[t=0.004000s, 10640 KB] Variables: 9
+[t=0.004000s, 10640 KB] FactPairs: 34
+[t=0.004000s, 10640 KB] Bytes per state: 4
+[t=0.004000s, 10640 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=0.004000s, 10640 KB] Initial heuristic value for blind: 1
+[t=0.004000s, 10640 KB] Couldn't find a solution with width_k = 1
+[t=0.004000s, 10640 KB] Restarting search with increased width_k = 2
+[t=0.004000s, 10640 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=0.004000s, 10640 KB] Initial heuristic value for blind: 1
+[t=0.004000s, 10640 KB] Couldn't find a solution with width_k = 2
+[t=0.004000s, 10640 KB] Restarting search with increased width_k = 3
+[t=0.004000s, 10640 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=0.004000s, 10640 KB] Initial heuristic value for blind: 1
+[t=0.031916s, 10784 KB] Couldn't find a solution with width_k = 3
+[t=0.031916s, 10784 KB] Restarting search with increased width_k = 4
+[t=0.031916s, 10784 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=0.031916s, 10784 KB] Initial heuristic value for blind: 1
+[t=0.543882s, 11124 KB] Couldn't find a solution with width_k = 4
+[t=0.543882s, 11124 KB] Restarting search with increased width_k = 5
+[t=0.543882s, 11124 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=0.543882s, 11124 KB] Initial heuristic value for blind: 1
+[t=4.671685s, 12536 KB] Couldn't find a solution with width_k = 5
+[t=4.671685s, 12536 KB] Restarting search with increased width_k = 6
+[t=4.671685s, 12536 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=4.671685s, 12536 KB] Initial heuristic value for blind: 1
+[t=16.367127s, 13420 KB] Couldn't find a solution with width_k = 6
+[t=16.367127s, 13420 KB] Restarting search with increased width_k = 7
+[t=16.367127s, 13420 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=16.367127s, 13420 KB] Initial heuristic value for blind: 1
+[t=23.118829s, 13420 KB] Couldn't find a solution with width_k = 7
+[t=23.118829s, 13420 KB] Restarting search with increased width_k = 8
+[t=23.118829s, 13420 KB] Conducting width-based search without reopening closed nodes, (real) bound = 2147483647
+[t=23.118829s, 13420 KB] Initial heuristic value for blind: 1
+[t=23.934797s, 13420 KB] Solution found!
+[t=23.934797s, 13420 KB] Found a solution with width_k = 8
+[t=23.934797s, 13420 KB] Actual search time: 23.930797s
+pick ball1 rooma left (1)
+move rooma roomb (1)
+drop ball1 roomb left (1)
+move roomb rooma (1)
+pick ball2 rooma left (1)
+move rooma roomb (1)
+drop ball2 roomb left (1)
+move roomb rooma (1)
+pick ball3 rooma left (1)
+move rooma roomb (1)
+drop ball3 roomb left (1)
+move roomb rooma (1)
+pick ball4 rooma left (1)
+move rooma roomb (1)
+drop ball4 roomb left (1)
+move roomb rooma (1)
+pick ball5 rooma left (1)
+move rooma roomb (1)
+drop ball5 roomb left (1)
+move roomb rooma (1)
+pick ball6 rooma left (1)
+move rooma roomb (1)
+drop ball6 roomb left (1)
+[t=23.934797s, 13420 KB] Plan length: 23 step(s).
+[t=23.934797s, 13420 KB] Plan cost: 23
+[t=23.934797s, 13420 KB] Expanded 0 state(s).
+[t=23.934797s, 13420 KB] Reopened 0 state(s).
+[t=23.934797s, 13420 KB] Evaluated 5984 state(s).
+[t=23.934797s, 13420 KB] Evaluations: 1824
+[t=23.934797s, 13420 KB] Generated 24526 state(s).
+[t=23.934797s, 13420 KB] Dead ends: 0 state(s).
+[t=23.934797s, 13420 KB] Number of registered states: 1855
+[t=23.934797s, 13420 KB] Int hash set load factor: 1855/2048 = 0.905762
+[t=23.934797s, 13420 KB] Int hash set resizes: 11
+[t=23.934797s, 13420 KB] Search time: 23.930797s
+[t=23.934797s, 13420 KB] Total time: 23.934797s
+Solution found.
+Peak memory: 13420 KB
+Remove intermediate file output.sas
+search exit code: 0
+
+INFO     Running validate.
+INFO     validate stdin: None
+INFO     validate time limit: None
+INFO     validate memory limit: None
+INFO     validate command line string: /infai/sherem0000/bin/validate domain.pddl problem.pddl sas_plan
+Checking plan: sas_plan
+Plan executed successfully - checking goal
+Plan valid
+Final value: 23 
+
+Successful plans:
+Value: 23
+ sas_plan 23 
+
+validate exit code: 0
+
+INFO     Planner time: 24.12s

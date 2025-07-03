@@ -1,0 +1,1 @@
+../../../../../../downward-benchmarks/openstacks/p03.pddl

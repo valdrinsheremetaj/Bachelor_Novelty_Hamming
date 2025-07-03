@@ -1,6 +1,0 @@
-/home/valdrin/downward/downward/experiments/hw-vs-nw/data/revision-cache/ae5298b85f9f8809d0e680b48ea3eea8b8a0946e_e5e41175/builds/release/CMakeFiles/translate.dir
-/home/valdrin/downward/downward/experiments/hw-vs-nw/data/revision-cache/ae5298b85f9f8809d0e680b48ea3eea8b8a0946e_e5e41175/builds/release/CMakeFiles/edit_cache.dir
-/home/valdrin/downward/downward/experiments/hw-vs-nw/data/revision-cache/ae5298b85f9f8809d0e680b48ea3eea8b8a0946e_e5e41175/builds/release/CMakeFiles/rebuild_cache.dir
-/home/valdrin/downward/downward/experiments/hw-vs-nw/data/revision-cache/ae5298b85f9f8809d0e680b48ea3eea8b8a0946e_e5e41175/builds/release/search/CMakeFiles/downward.dir
-/home/valdrin/downward/downward/experiments/hw-vs-nw/data/revision-cache/ae5298b85f9f8809d0e680b48ea3eea8b8a0946e_e5e41175/builds/release/search/CMakeFiles/edit_cache.dir
-/home/valdrin/downward/downward/experiments/hw-vs-nw/data/revision-cache/ae5298b85f9f8809d0e680b48ea3eea8b8a0946e_e5e41175/builds/release/search/CMakeFiles/rebuild_cache.dir

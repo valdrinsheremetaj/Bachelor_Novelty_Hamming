@@ -241,8 +241,8 @@ def _set_components_and_inputs(parser, args):
     # We implicitly activate validation in debug mode. However, for
     # validation we need the PDDL input files and a plan, therefore both
     # components must be active.
-    if args.validate or (args.debug and len(args.components) == 2):
-        args.components.append("validate")
+   # if args.validate or (args.debug and len(args.components) == 2):
+   #     args.components.append("validate")
 
     args.translate_inputs = []
 

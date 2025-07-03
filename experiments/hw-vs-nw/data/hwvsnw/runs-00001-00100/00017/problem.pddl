@@ -1,0 +1,1 @@
+../../../../../../downward-benchmarks/blocks/probBLOCKS-6-0.pddl

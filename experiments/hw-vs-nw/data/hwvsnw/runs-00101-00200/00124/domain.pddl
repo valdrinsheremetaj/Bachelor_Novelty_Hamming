@@ -1,0 +1,1 @@
+../../../../../../downward-benchmarks/visitall-opt11-strips/domain.pddl

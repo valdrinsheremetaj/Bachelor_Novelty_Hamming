@@ -6,14 +6,15 @@ from lab.experiment import Experiment
 
 ATTRIBUTES = [
     "error",
+    "expansions",
     "run_dir",
     "planner_time",
     "coverage",
     "cost",
     "evaluations",
-    "generated",   
+    "generated",
     "memory",
-    "width_k",      
+    "width_k",
     project.EVALUATIONS_PER_TIME,
 ]
 
